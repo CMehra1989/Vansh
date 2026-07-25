@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Excel Upload</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+<style>
+  * { box-sizing: border-box; }
+  body {
+    font-family: Segoe UI, Arial, sans-serif;
+    background: #f4f6f8;
+    margin: 0;
+    padding: 40px 20px;
+    color: #222;
+  }
+  .container {
+    max-width: 900px;
+    margin: 0 auto;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+    padding: 30px;
+  }
+  h1 {
+    margin-top: 0;
+    font-size: 22px;
+  }
+  #dropzone {
+    border: 2px dashed #9aa5b1;
+    border-radius: 8px;
+    padding: 40px 20px;
+    text-align: center;
+    color: #555;
+    cursor: pointer;
+    transition: background 0.2s, border-color 0.2s;
+  }
+  #dropzone.dragover {
+    background: #eef4ff;
+    border-color: #3b82f6;
+  }
+  #dropzone p {
+    margin: 6px 0;
+  }
+  #fileInput { display: none; }
+  #fileInfo {
+    margin-top: 16px;
+    font-size: 14px;
+    color: #333;
+  }
+  #status {
+    margin-top: 10px;
+    font-size: 14px;
+  }
+  #status.error { color: #b91c1c; }
+  #status.ok { color: #15803d; }
+  .table-wrap {
+    margin-top: 24px;
+    overflow: auto;
+    max-height: 500px;
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+  }
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 13px;
+  }
+  th, td {
+    border: 1px solid #e2e8f0;
+    padding: 6px 10px;
+    text-align: left;
+    white-space: nowrap;
+  }
+  th {
+    background: #f1f5f9;
+    position: sticky;
+    top: 0;
+  }
+  tr:nth-child(even) td { background: #fafafa; }
+  .sheet-tabs {
+    margin-top: 20px;
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+  }
+  .sheet-tab {
+    padding: 6px 12px;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    background: #fff;
+    cursor: pointer;
+    font-size: 13px;
+  }
+  .sheet-tab.active {
+    background: #3b82f6;
+    color: #fff;
+    border-color: #3b82f6;
+  }
+  button.browse {
+    margin-top: 14px;
+    padding: 8px 18px;
+    background: #3b82f6;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+  }
+  button.browse:hover { background: #2563eb; }
+  .column-select {
+    margin-top: 20px;
+  }
+  .column-select label {
+    font-size: 14px;
+    font-weight: 600;
+    margin-right: 8px;
+  }
+  .column-select select {
+    padding: 6px 10px;
+    font-size: 14px;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    min-width: 200px;
+  }
+  button.split, button.download {
+    margin-left: 10px;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    color: #fff;
+  }
+  button.split { background: #15803d; }
+  button.split:hover { background: #116932; }
+  button.download { background: #7c3aed; }
+  button.download:hover { background: #6528d4; }
+  .sheets-per-file {
+    display: inline-flex;
+    align-items: center;
+    margin-left: 10px;
+  }
+  .sheets-per-file label {
+    font-size: 13px;
+    color: #444;
+    margin-right: 6px;
+  }
+  .sheets-per-file input {
+    width: 60px;
+    padding: 6px 8px;
+    font-size: 14px;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+  }
+  .save-folder {
+    margin-top: 14px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  button.folder {
+    padding: 8px 16px;
+    background: #0f766e;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+  }
+  button.folder:hover { background: #0c5e57; }
+  button.folder:disabled {
+    background: #9ca3af;
+    cursor: not-allowed;
+  }
+  #folderLabel {
+    font-size: 13px;
+    color: #444;
+  }
+  .split-tabs {
+    margin-top: 20px;
+  }
+  .split-tabs-label {
+    font-size: 13px;
+    font-weight: 600;
+    color: #444;
+    margin-bottom: 6px;
+  }
+  .split-tab {
+    padding: 6px 12px;
+    border: 1px solid #c4b5fd;
+    border-radius: 6px;
+    background: #f5f3ff;
+    cursor: pointer;
+    font-size: 13px;
+  }
+  .split-tab.active {
+    background: #7c3aed;
+    color: #fff;
+    border-color: #7c3aed;
+  }
+</style>
+</head>
+<body>
+  <div class="container">
+    <h1>Upload Excel File</h1>
+
+    <div id="dropzone">
+      <p>Drag and drop an Excel file here (.xlsx, .xls, .csv)</p>
+      <p>or</p>
+      <button type="button" class="browse" id="browseBtn">Browse Files</button>
+      <input type="file" id="fileInput" accept=".xlsx,.xls,.csv">
+    </div>
+
+    <div id="fileInfo"></div>
+    <div id="status"></div>
+
+    <div id="sheetTabs" class="sheet-tabs"></div>
+
+    <div class="column-select" id="columnSelectWrap" style="display:none;">
+      <label for="columnSelect">Column:</label>
+      <select id="columnSelect"></select>
+      <button type="button" class="split" id="splitBtn">Split by Column</button>
+      <span class="sheets-per-file">
+        <label for="sheetsPerFile">Sheets per file:</label>
+        <input type="number" id="sheetsPerFile" min="1" value="15">
+      </span>
+      <span class="sheets-per-file" id="fileNameWrap" style="display:none;">
+        <label for="fileNameInput">File name:</label>
+        <input type="text" id="fileNameInput" style="width:180px;">
+      </span>
+      <span class="sheets-per-file" id="sheetPrefixWrap" style="display:none;">
+        <label for="sheetPrefixInput">Sheet name suffix:</label>
+        <input type="text" id="sheetPrefixInput" style="width:120px;">
+      </span>
+      <button type="button" class="download" id="downloadBtn" style="display:none;">Download Split File(s)</button>
+    </div>
+
+    <div class="save-folder" id="saveFolderWrap" style="display:none;">
+      <button type="button" class="folder" id="chooseFolderBtn">Set Default Save Folder (one-time)</button>
+      <span id="folderLabel">No folder selected — files will go to your browser's default Downloads folder.</span>
+    </div>
+
+    <div class="split-tabs" id="splitTabsWrap" style="display:none;">
+      <div class="split-tabs-label">Split Results:</div>
+      <div class="sheet-tabs" id="splitTabs"></div>
+    </div>
+
+    <div class="table-wrap">
+      <table id="previewTable"></table>
+    </div>
+  </div>
+
+<script>
+  const dropzone = document.getElementById('dropzone');
+  const fileInput = document.getElementById('fileInput');
+  const browseBtn = document.getElementById('browseBtn');
+  const fileInfo = document.getElementById('fileInfo');
+  const statusEl = document.getElementById('status');
+  const sheetTabs = document.getElementById('sheetTabs');
+  const previewTable = document.getElementById('previewTable');
+  const columnSelectWrap = document.getElementById('columnSelectWrap');
+  const columnSelect = document.getElementById('columnSelect');
+  const splitBtn = document.getElementById('splitBtn');
+  const downloadBtn = document.getElementById('downloadBtn');
+  const splitTabsWrap = document.getElementById('splitTabsWrap');
+  const splitTabs = document.getElementById('splitTabs');
+  const sheetsPerFileInput = document.getElementById('sheetsPerFile');
+  const fileNameWrap = document.getElementById('fileNameWrap');
+  const fileNameInput = document.getElementById('fileNameInput');
+  const sheetPrefixWrap = document.getElementById('sheetPrefixWrap');
+  const sheetPrefixInput = document.getElementById('sheetPrefixInput');
+  const saveFolderWrap = document.getElementById('saveFolderWrap');
+  const chooseFolderBtn = document.getElementById('chooseFolderBtn');
+  const folderLabel = document.getElementById('folderLabel');
+
+  let workbook = null;
+  let currentRows = null;
+  let currentFileBaseName = 'data';
+  let splitHeader = null;
+  let splitGroupsArr = null;
+  let saveDirHandle = null;
+  const supportsDirPicker = typeof window.showDirectoryPicker === 'function';
+
+  const DB_NAME = 'excelSplitterDB';
+  const STORE_NAME = 'handles';
+  const HANDLE_KEY = 'saveDir';
+
+  function idbRequest(mode, callback) {
+    return new Promise((resolve, reject) => {
+      const openReq = indexedDB.open(DB_NAME, 1);
+      openReq.onupgradeneeded = () => openReq.result.createObjectStore(STORE_NAME);
+      openReq.onsuccess = () => {
+        const db = openReq.result;
+        const tx = db.transaction(STORE_NAME, mode);
+        const result = callback(tx.objectStore(STORE_NAME));
+        tx.oncomplete = () => resolve(result && result.result !== undefined ? result.result : undefined);
+        tx.onerror = () => reject(tx.error);
+      };
+      openReq.onerror = () => reject(openReq.error);
+    });
+  }
+
+  function idbGetHandle() {
+    return idbRequest('readonly', store => store.get(HANDLE_KEY));
+  }
+
+  function idbSetHandle(handle) {
+    return idbRequest('readwrite', store => store.put(handle, HANDLE_KEY));
+  }
+
+  function markFolderActive(handle) {
+    saveDirHandle = handle;
+    folderLabel.textContent = `Auto-saving to: ${handle.name}`;
+    chooseFolderBtn.style.display = 'none';
+  }
+
+  if (!supportsDirPicker) {
+    chooseFolderBtn.disabled = true;
+    chooseFolderBtn.title = 'Not supported in this browser (use Chrome or Edge)';
+  } else {
+    idbGetHandle().then(async (storedHandle) => {
+      if (!storedHandle) return;
+      try {
+        const perm = await storedHandle.queryPermission({ mode: 'readwrite' });
+        if (perm === 'granted') {
+          markFolderActive(storedHandle);
+        } else {
+          chooseFolderBtn.textContent = 'Reconnect Save Folder';
+          chooseFolderBtn.dataset.reconnect = 'true';
+          chooseFolderBtn.dataset.handlePending = 'true';
+          chooseFolderBtn._pendingHandle = storedHandle;
+        }
+      } catch (err) {
+        // stored handle no longer valid; fall through to normal setup button
+      }
+    });
+  }
+
+  chooseFolderBtn.addEventListener('click', async () => {
+    try {
+      let handle;
+      if (chooseFolderBtn.dataset.reconnect === 'true' && chooseFolderBtn._pendingHandle) {
+        handle = chooseFolderBtn._pendingHandle;
+        const perm = await handle.requestPermission({ mode: 'readwrite' });
+        if (perm !== 'granted') return;
+      } else {
+        handle = await window.showDirectoryPicker({ startIn: 'documents' });
+        await idbSetHandle(handle);
+      }
+      markFolderActive(handle);
+    } catch (err) {
+      // user cancelled the picker
+    }
+  });
+
+  splitBtn.addEventListener('click', splitByColumn);
+  downloadBtn.addEventListener('click', downloadSplitFiles);
+
+  browseBtn.addEventListener('click', () => fileInput.click());
+  dropzone.addEventListener('click', (e) => {
+    if (e.target !== browseBtn) fileInput.click();
+  });
+
+  fileInput.addEventListener('change', (e) => {
+    if (e.target.files.length) handleFile(e.target.files[0]);
+  });
+
+  ['dragenter', 'dragover'].forEach(evt => {
+    dropzone.addEventListener(evt, (e) => {
+      e.preventDefault();
+      dropzone.classList.add('dragover');
+    });
+  });
+
+  ['dragleave', 'drop'].forEach(evt => {
+    dropzone.addEventListener(evt, (e) => {
+      e.preventDefault();
+      dropzone.classList.remove('dragover');
+    });
+  });
+
+  dropzone.addEventListener('drop', (e) => {
+    const files = e.dataTransfer.files;
+    if (files.length) handleFile(files[0]);
+  });
+
+  function setStatus(msg, type) {
+    statusEl.textContent = msg;
+    statusEl.className = type || '';
+  }
+
+  function handleFile(file) {
+    const validExt = /\.(xlsx|xls|csv)$/i;
+    if (!validExt.test(file.name)) {
+      setStatus('Unsupported file type. Please upload a .xlsx, .xls, or .csv file.', 'error');
+      return;
+    }
+
+    fileInfo.textContent = `Selected: ${file.name} (${(file.size / 1024).toFixed(1)} KB)`;
+    setStatus('Reading file...', '');
+    sheetTabs.innerHTML = '';
+    previewTable.innerHTML = '';
+    resetSplitState();
+    currentFileBaseName = file.name.replace(/\.[^.]+$/, '');
+
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      try {
+        const data = new Uint8Array(e.target.result);
+        workbook = XLSX.read(data, { type: 'array' });
+        renderSheetTabs();
+        renderSheet(workbook.SheetNames[0]);
+        setStatus(`Loaded successfully. ${workbook.SheetNames.length} sheet(s) found.`, 'ok');
+      } catch (err) {
+        setStatus('Failed to read file: ' + err.message, 'error');
+      }
+    };
+    reader.onerror = () => setStatus('Error reading file.', 'error');
+    reader.readAsArrayBuffer(file);
+  }
+
+  function resetSplitState() {
+    splitHeader = null;
+    splitGroupsArr = null;
+    splitTabs.innerHTML = '';
+    splitTabsWrap.style.display = 'none';
+    downloadBtn.style.display = 'none';
+    fileNameWrap.style.display = 'none';
+    sheetPrefixWrap.style.display = 'none';
+  }
+
+  function renderSheetTabs() {
+    sheetTabs.innerHTML = '';
+    workbook.SheetNames.forEach((name, idx) => {
+      const tab = document.createElement('div');
+      tab.className = 'sheet-tab' + (idx === 0 ? ' active' : '');
+      tab.textContent = name;
+      tab.addEventListener('click', () => {
+        document.querySelectorAll('.sheet-tab').forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+        resetSplitState();
+        renderSheet(name);
+      });
+      sheetTabs.appendChild(tab);
+    });
+  }
+
+  function renderSheet(sheetName) {
+    const sheet = workbook.Sheets[sheetName];
+    const rows = XLSX.utils.sheet_to_json(sheet, { header: 1, defval: '' });
+
+    currentRows = rows;
+
+    if (!rows.length) {
+      previewTable.innerHTML = '';
+      columnSelectWrap.style.display = 'none';
+      return;
+    }
+
+    populateColumnSelect(rows[0]);
+    renderTable(rows);
+  }
+
+  function renderTable(rows) {
+    previewTable.innerHTML = '';
+    if (!rows.length) return;
+
+    const thead = document.createElement('thead');
+    const headerRow = document.createElement('tr');
+    rows[0].forEach(cell => {
+      const th = document.createElement('th');
+      th.textContent = cell;
+      headerRow.appendChild(th);
+    });
+    thead.appendChild(headerRow);
+    previewTable.appendChild(thead);
+
+    const tbody = document.createElement('tbody');
+    rows.slice(1).forEach(row => {
+      const tr = document.createElement('tr');
+      row.forEach(cell => {
+        const td = document.createElement('td');
+        td.textContent = cell;
+        tr.appendChild(td);
+      });
+      tbody.appendChild(tr);
+    });
+    previewTable.appendChild(tbody);
+  }
+
+  function splitByColumn() {
+    if (!currentRows || currentRows.length < 2) {
+      setStatus('No data available to split.', 'error');
+      return;
+    }
+
+    const colIdx = parseInt(columnSelect.value, 10);
+    const header = currentRows[0];
+    const dataRows = currentRows.slice(1);
+
+    const groups = new Map();
+    dataRows.forEach(row => {
+      const key = row[colIdx] !== undefined && row[colIdx] !== '' ? String(row[colIdx]) : '(Blank)';
+      if (!groups.has(key)) groups.set(key, []);
+      groups.get(key).push(row);
+    });
+
+    splitHeader = header;
+    splitGroupsArr = Array.from(groups.entries());
+    splitTabs.innerHTML = '';
+
+    let firstKey = null;
+    groups.forEach((groupRows, key) => {
+      if (firstKey === null) firstKey = key;
+
+      const tab = document.createElement('div');
+      tab.className = 'split-tab' + (key === firstKey ? ' active' : '');
+      tab.textContent = `${key} (${groupRows.length})`;
+      tab.addEventListener('click', () => {
+        document.querySelectorAll('.split-tab').forEach(t => t.classList.remove('active'));
+        document.querySelectorAll('.sheet-tab').forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+        renderTable([header, ...groupRows]);
+      });
+      splitTabs.appendChild(tab);
+    });
+
+    splitTabsWrap.style.display = 'block';
+    downloadBtn.style.display = 'inline-block';
+    fileNameWrap.style.display = 'inline-flex';
+    fileNameInput.value = `${currentFileBaseName}_split`;
+    sheetPrefixWrap.style.display = 'inline-flex';
+    sheetPrefixInput.value = '';
+
+    if (firstKey !== null) renderTable([header, ...groups.get(firstKey)]);
+    setStatus(`Split into ${groups.size} tab(s) by "${header[colIdx]}".`, 'ok');
+  }
+
+  function sanitizeFileName(name) {
+    const cleaned = String(name).replace(/[\\/:*?"<>|]/g, '').trim();
+    return cleaned || 'data_split';
+  }
+
+  async function downloadSplitFiles() {
+    if (!splitGroupsArr || !splitGroupsArr.length) return;
+
+    let chunkSize = parseInt(sheetsPerFileInput.value, 10);
+    if (!chunkSize || chunkSize < 1) chunkSize = splitGroupsArr.length;
+
+    const chunks = [];
+    for (let i = 0; i < splitGroupsArr.length; i += chunkSize) {
+      chunks.push(splitGroupsArr.slice(i, i + chunkSize));
+    }
+
+    setStatus(`Saving ${chunks.length} file(s) (${chunkSize} sheet(s) per file)...`, '');
+
+    const baseName = sanitizeFileName(fileNameInput.value || `${currentFileBaseName}_split`);
+    const sheetPrefix = sheetPrefixInput.value.trim();
+
+    for (let fileIdx = 0; fileIdx < chunks.length; fileIdx++) {
+      const chunk = chunks[fileIdx];
+      const wb = XLSX.utils.book_new();
+      const usedNames = new Set();
+      chunk.forEach(([key, groupRows]) => {
+        const rawSheetName = sheetPrefix ? `${key}_${sheetPrefix}` : key;
+        const sheetName = uniqueSheetName(rawSheetName, usedNames);
+        const ws = XLSX.utils.aoa_to_sheet([splitHeader, ...groupRows]);
+        XLSX.utils.book_append_sheet(wb, ws, sheetName);
+      });
+
+      const fileName = chunks.length > 1
+        ? `${baseName}_part${fileIdx + 1}.xlsx`
+        : `${baseName}.xlsx`;
+
+      if (saveDirHandle) {
+        try {
+          const buffer = XLSX.write(wb, { bookType: 'xlsx', type: 'array' });
+          const fileHandle = await saveDirHandle.getFileHandle(fileName, { create: true });
+          const writable = await fileHandle.createWritable();
+          await writable.write(buffer);
+          await writable.close();
+        } catch (err) {
+          setStatus('Failed to save to chosen folder: ' + err.message, 'error');
+          return;
+        }
+      } else {
+        XLSX.writeFile(wb, fileName);
+        await new Promise(resolve => setTimeout(resolve, 300));
+      }
+    }
+
+    setStatus(
+      saveDirHandle
+        ? `Saved ${chunks.length} file(s) automatically to "${saveDirHandle.name}".`
+        : `Downloaded ${chunks.length} file(s) to your browser's default Downloads folder. Set a default save folder above to skip this next time.`,
+      'ok'
+    );
+  }
+
+  function uniqueSheetName(name, usedNames) {
+    let sanitized = String(name).replace(/[:\\/?*\[\]]/g, ' ').trim();
+    if (!sanitized) sanitized = 'Sheet';
+    sanitized = sanitized.substring(0, 31);
+
+    let finalName = sanitized;
+    let counter = 1;
+    while (usedNames.has(finalName.toLowerCase())) {
+      const suffix = `_${counter}`;
+      finalName = sanitized.substring(0, 31 - suffix.length) + suffix;
+      counter++;
+    }
+    usedNames.add(finalName.toLowerCase());
+    return finalName;
+  }
+
+  function populateColumnSelect(headerRow) {
+    columnSelect.innerHTML = '';
+    headerRow.forEach((header, idx) => {
+      const option = document.createElement('option');
+      option.value = idx;
+      option.textContent = header !== '' ? header : `(Column ${idx + 1})`;
+      columnSelect.appendChild(option);
+    });
+    columnSelectWrap.style.display = headerRow.length ? 'block' : 'none';
+    saveFolderWrap.style.display = headerRow.length ? 'flex' : 'none';
+  }
+</script>
+</body>
+</html>
