@@ -276,6 +276,8 @@
 
   let workbook = null;
   let currentRows = null;
+  let currentDisplayRows = null;
+  let currentSheet = null;
   let currentFileBaseName = 'data';
   let splitHeader = null;
   let splitGroupsArr = null;
@@ -408,7 +410,7 @@
     reader.onload = (e) => {
       try {
         const data = new Uint8Array(e.target.result);
-        workbook = XLSX.read(data, { type: 'array' });
+        workbook = XLSX.read(data, { type: 'array', cellNF: true, cellStyles: true });
         renderSheetTabs();
         renderSheet(workbook.SheetNames[0]);
         setStatus(`Loaded successfully. ${workbook.SheetNames.length} sheet(s) found.`, 'ok');
@@ -449,8 +451,11 @@
   function renderSheet(sheetName) {
     const sheet = workbook.Sheets[sheetName];
     const rows = XLSX.utils.sheet_to_json(sheet, { header: 1, defval: '' });
+    const displayRows = XLSX.utils.sheet_to_json(sheet, { header: 1, defval: '', raw: false });
 
+    currentSheet = sheet;
     currentRows = rows;
+    currentDisplayRows = displayRows;
 
     if (!rows.length) {
       previewTable.innerHTML = '';
@@ -459,7 +464,7 @@
     }
 
     populateColumnSelect(rows[0]);
-    renderTable(rows);
+    renderTable(displayRows);
   }
 
   function renderTable(rows) {
@@ -497,13 +502,15 @@
 
     const colIdx = parseInt(columnSelect.value, 10);
     const header = currentRows[0];
+    const displayHeader = currentDisplayRows[0];
     const dataRows = currentRows.slice(1);
 
     const groups = new Map();
-    dataRows.forEach(row => {
+    dataRows.forEach((row, k) => {
+      const rowIndex = k + 1; // matches this row's actual index in the source sheet
       const key = row[colIdx] !== undefined && row[colIdx] !== '' ? String(row[colIdx]) : '(Blank)';
       if (!groups.has(key)) groups.set(key, []);
-      groups.get(key).push(row);
+      groups.get(key).push(rowIndex);
     });
 
     splitHeader = header;
@@ -511,17 +518,17 @@
     splitTabs.innerHTML = '';
 
     let firstKey = null;
-    groups.forEach((groupRows, key) => {
+    groups.forEach((rowIndices, key) => {
       if (firstKey === null) firstKey = key;
 
       const tab = document.createElement('div');
       tab.className = 'split-tab' + (key === firstKey ? ' active' : '');
-      tab.textContent = `${key} (${groupRows.length})`;
+      tab.textContent = `${key} (${rowIndices.length})`;
       tab.addEventListener('click', () => {
         document.querySelectorAll('.split-tab').forEach(t => t.classList.remove('active'));
         document.querySelectorAll('.sheet-tab').forEach(t => t.classList.remove('active'));
         tab.classList.add('active');
-        renderTable([header, ...groupRows]);
+        renderTable([displayHeader, ...rowIndices.map(i => currentDisplayRows[i])]);
       });
       splitTabs.appendChild(tab);
     });
@@ -533,8 +540,25 @@
     sheetPrefixWrap.style.display = 'inline-flex';
     sheetPrefixInput.value = '';
 
-    if (firstKey !== null) renderTable([header, ...groups.get(firstKey)]);
+    if (firstKey !== null) renderTable([displayHeader, ...groups.get(firstKey).map(i => currentDisplayRows[i])]);
     setStatus(`Split into ${groups.size} tab(s) by "${header[colIdx]}".`, 'ok');
+  }
+
+  function copySheetSubset(sourceSheet, rowIndices, numCols) {
+    const newSheet = {};
+    rowIndices.forEach((srcRow, newRow) => {
+      for (let c = 0; c < numCols; c++) {
+        const cell = sourceSheet[XLSX.utils.encode_cell({ r: srcRow, c })];
+        if (cell) {
+          newSheet[XLSX.utils.encode_cell({ r: newRow, c })] = Object.assign({}, cell);
+        }
+      }
+    });
+    newSheet['!ref'] = XLSX.utils.encode_range({
+      s: { r: 0, c: 0 },
+      e: { r: Math.max(rowIndices.length - 1, 0), c: Math.max(numCols - 1, 0) }
+    });
+    return newSheet;
   }
 
   function sanitizeFileName(name) {
@@ -562,10 +586,10 @@
       const chunk = chunks[fileIdx];
       const wb = XLSX.utils.book_new();
       const usedNames = new Set();
-      chunk.forEach(([key, groupRows]) => {
+      chunk.forEach(([key, rowIndices]) => {
         const rawSheetName = sheetPrefix ? `${key}_${sheetPrefix}` : key;
         const sheetName = uniqueSheetName(rawSheetName, usedNames);
-        const ws = XLSX.utils.aoa_to_sheet([splitHeader, ...groupRows]);
+        const ws = copySheetSubset(currentSheet, [0, ...rowIndices], splitHeader.length);
         XLSX.utils.book_append_sheet(wb, ws, sheetName);
       });
 
