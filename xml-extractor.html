@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Purchase Order XML Extractor</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+<style>
+  * { box-sizing: border-box; }
+  body {
+    font-family: Segoe UI, Arial, sans-serif;
+    background: #f4f6f8;
+    margin: 0;
+    padding: 40px 20px;
+    color: #222;
+  }
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+    padding: 30px;
+  }
+  h1 {
+    margin-top: 0;
+    font-size: 22px;
+  }
+  #dropzone {
+    border: 2px dashed #9aa5b1;
+    border-radius: 8px;
+    padding: 40px 20px;
+    text-align: center;
+    color: #555;
+    cursor: pointer;
+    transition: background 0.2s, border-color 0.2s;
+  }
+  #dropzone.dragover {
+    background: #eef4ff;
+    border-color: #3b82f6;
+  }
+  #dropzone p {
+    margin: 6px 0;
+  }
+  #fileInput { display: none; }
+  #fileInfo {
+    margin-top: 16px;
+    font-size: 14px;
+    color: #333;
+  }
+  #status {
+    margin-top: 10px;
+    font-size: 14px;
+  }
+  #status.error { color: #b91c1c; }
+  #status.ok { color: #15803d; }
+  .table-wrap {
+    margin-top: 24px;
+    overflow: auto;
+    max-height: 600px;
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+  }
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 13px;
+  }
+  th, td {
+    border: 1px solid #e2e8f0;
+    padding: 6px 10px;
+    text-align: left;
+    white-space: nowrap;
+  }
+  th {
+    background: #f1f5f9;
+    position: sticky;
+    top: 0;
+  }
+  tr:nth-child(even) td { background: #fafafa; }
+  button.browse {
+    margin-top: 14px;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 6px;
+    background: #3b82f6;
+    color: #fff;
+    font-size: 14px;
+    cursor: pointer;
+  }
+  button.browse:hover { background: #2563eb; }
+  button.export {
+    margin-top: 16px;
+    margin-left: 10px;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 6px;
+    background: #15803d;
+    color: #fff;
+    font-size: 14px;
+    cursor: pointer;
+  }
+  button.export:hover { background: #166534; }
+  .toolbar {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  #summary {
+    margin-top: 16px;
+    font-size: 14px;
+    color: #333;
+  }
+  input#filterInput {
+    margin-top: 16px;
+    padding: 8px 10px;
+    width: 100%;
+    max-width: 320px;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    font-size: 13px;
+  }
+  .tabs {
+    margin-top: 24px;
+    display: flex;
+    gap: 6px;
+    border-bottom: 1px solid #e2e8f0;
+  }
+  .tab-btn {
+    padding: 10px 18px;
+    border: none;
+    background: none;
+    font-size: 14px;
+    cursor: pointer;
+    color: #555;
+    border-bottom: 2px solid transparent;
+    margin-bottom: -1px;
+  }
+  .tab-btn.active {
+    color: #3b82f6;
+    border-bottom-color: #3b82f6;
+    font-weight: 600;
+  }
+  .tab-panel { display: none; }
+  .tab-panel.active { display: block; }
+  #drilldownTable td.path {
+    font-family: Consolas, "Courier New", monospace;
+    color: #6b7280;
+  }
+  #drilldownTable td.header {
+    font-weight: 600;
+  }
+  #drilldownTable td.value {
+    white-space: normal;
+    word-break: break-word;
+  }
+</style>
+</head>
+<body>
+<div class="container">
+  <h1>Purchase Order XML Extractor</h1>
+
+  <div id="dropzone">
+    <p><strong>Drag &amp; drop</strong> an XML file here, or click to browse</p>
+    <p style="font-size:12px;color:#888;">Expects a &lt;PurchaseOrders&gt; feed with &lt;PurchaseOrderMessage&gt; entries</p>
+    <input type="file" id="fileInput" accept=".xml,text/xml,application/xml">
+    <button class="browse" type="button" id="browseBtn">Choose File</button>
+  </div>
+
+  <div id="fileInfo"></div>
+  <div id="status"></div>
+  <div id="summary"></div>
+
+  <div class="tabs">
+    <button class="tab-btn active" type="button" data-tab="table">Table View</button>
+    <button class="tab-btn" type="button" data-tab="drilldown">Drill Down</button>
+  </div>
+
+  <div class="tab-panel active" id="tab-table">
+    <div class="toolbar">
+      <input type="text" id="filterInput" placeholder="Filter rows (any column)..." style="display:none;">
+      <button class="export" type="button" id="exportTableBtn" style="display:none;">Export to Excel</button>
+    </div>
+
+    <div class="table-wrap" id="tableWrap" style="display:none;">
+      <table id="dataTable">
+        <thead></thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="tab-panel" id="tab-drilldown">
+    <div class="toolbar">
+      <input type="text" id="drilldownFilterInput" placeholder="Filter header, value or path..." style="display:none;">
+      <button class="export" type="button" id="exportDrilldownBtn" style="display:none;">Export to Excel</button>
+    </div>
+
+    <div class="table-wrap" id="drilldownTableWrap" style="display:none;">
+      <table id="drilldownTable">
+        <thead>
+          <tr><th>Header</th><th>Value</th><th>Length</th><th>Path</th></tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<script>
+const dropzone = document.getElementById('dropzone');
+const fileInput = document.getElementById('fileInput');
+const browseBtn = document.getElementById('browseBtn');
+const fileInfo = document.getElementById('fileInfo');
+const statusEl = document.getElementById('status');
+const summaryEl = document.getElementById('summary');
+const tableWrap = document.getElementById('tableWrap');
+const dataTable = document.getElementById('dataTable');
+const filterInput = document.getElementById('filterInput');
+const drilldownFilterInput = document.getElementById('drilldownFilterInput');
+const drilldownTableWrap = document.getElementById('drilldownTableWrap');
+const drilldownTable = document.getElementById('drilldownTable');
+const exportTableBtn = document.getElementById('exportTableBtn');
+const exportDrilldownBtn = document.getElementById('exportDrilldownBtn');
+const tabBtns = document.querySelectorAll('.tab-btn');
+const tabPanels = document.querySelectorAll('.tab-panel');
+
+let messageElements = [];
+let drilldownRows = [];
+let currentTableRows = [];
+let currentDrilldownRows = [];
+
+const COLUMNS = [
+  ['messageId', 'Message ID'],
+  ['purchaseOfferNumber', 'PO Number'],
+  ['messagePurpose', 'Message Purpose'],
+  ['vendorId', 'Vendor ID'],
+  ['offerDate', 'Offer Date'],
+  ['issuerDivision', 'Issuer Division'],
+  ['shipMethodCode', 'Ship Method'],
+  ['buyingContract', 'Buying Contract'],
+  ['salesOrderNumber', 'Sales Order Number'],
+  ['salesOrderDate', 'Sales Order Date'],
+  ['salesDivision', 'Sales Division'],
+  ['paymentMethod', 'Payment Method'],
+  ['lineNumber', 'Line #'],
+  ['qtyOrdered', 'Qty Ordered'],
+  ['productDescription', 'Product Description'],
+  ['buyerSKU', 'Buyer SKU'],
+  ['skuColor', 'Color'],
+  ['skuSize', 'Size'],
+  ['vendorSKU', 'Vendor SKU'],
+  ['gs1', 'GS1'],
+  ['unitCost', 'Unit Cost'],
+  ['unitPrice', 'Unit Price'],
+  ['expectedShipByDate', 'Expected Ship By'],
+  ['billToName', 'Bill To Name'],
+  ['billToAddress', 'Bill To Address'],
+  ['billToCity', 'Bill To City'],
+  ['billToState', 'Bill To State'],
+  ['billToPostalCode', 'Bill To Postal'],
+  ['billToCountry', 'Bill To Country'],
+  ['billToEmail', 'Bill To Email'],
+  ['billToPhone', 'Bill To Phone'],
+  ['shipToName', 'Ship To Name'],
+  ['shipToAddress', 'Ship To Address'],
+  ['shipToCity', 'Ship To City'],
+  ['shipToState', 'Ship To State'],
+  ['shipToPostalCode', 'Ship To Postal'],
+  ['shipToCountry', 'Ship To Country'],
+];
+
+let allRows = [];
+
+function text(el, selector) {
+  if (!el) return '';
+  const node = selector ? el.querySelector(selector) : el;
+  return node && node.textContent ? node.textContent.trim() : '';
+}
+
+function attr(el, name) {
+  return el && el.getAttribute(name) ? el.getAttribute(name).trim() : '';
+}
+
+function personInfo(doc, id, prefix, rows) {
+  if (!id) return;
+  const person = doc.querySelector(`personPlaceInfo[personPlaceID="${cssEscape(id)}"]`);
+  if (!person) return;
+  const first = text(person, 'firstName');
+  const last = text(person, 'lastName');
+  rows[prefix + 'Name'] = [first, last].filter(Boolean).join(' ');
+  rows[prefix + 'Address'] = text(person, 'address1');
+  rows[prefix + 'City'] = text(person, 'city');
+  rows[prefix + 'State'] = text(person, 'state');
+  rows[prefix + 'PostalCode'] = text(person, 'postalCode');
+  rows[prefix + 'Country'] = text(person, 'country');
+  rows[prefix + 'Email'] = text(person, 'email');
+  rows[prefix + 'Phone'] = text(person, 'dayPhone');
+}
+
+function cssEscape(str) {
+  return String(str).replace(/["\\]/g, '\\$&');
+}
+
+function extractRows(doc) {
+  const rows = [];
+  const messages = doc.querySelectorAll('PurchaseOrderMessage');
+
+  messages.forEach(msg => {
+    const messageId = attr(msg, 'message-id');
+    const purchaseOfferNumber = attr(msg, 'purchase-offer-number');
+    const messagePurpose = attr(msg, 'message-purpose');
+
+    const vendorParty = Array.from(msg.querySelectorAll('participatingParty'))
+      .find(p => attr(p, 'role') === 'vendor');
+    const vendorId = vendorParty ? text(vendorParty) : '';
+
+    const offerDate = text(msg, 'offerDate');
+    const issuerDivision = text(msg, 'issuerDivision');
+    const shipMethodCode = attr(msg.querySelector('shipMethod'), 'code');
+    const buyingContract = text(msg, 'buyingContract');
+    const salesOrderNumber = text(msg, 'salesOrderNumber');
+    const salesOrderDate = text(msg, 'salesOrderDate');
+    const salesDivision = text(msg, 'salesDivision');
+    const paymentBreakout = msg.querySelector('paymentBreakout');
+    const paymentMethod = attr(paymentBreakout, 'payment-method');
+
+    const shipToId = attr(msg.querySelector('shipTo'), 'personPlaceID');
+    const billToId = attr(msg.querySelector('billTo'), 'personPlaceID');
+
+    const baseRow = {
+      messageId, purchaseOfferNumber, messagePurpose, vendorId,
+      offerDate, issuerDivision, shipMethodCode, buyingContract,
+      salesOrderNumber, salesOrderDate, salesDivision, paymentMethod,
+    };
+
+    personInfo(doc, billToId, 'billTo', baseRow);
+    personInfo(doc, shipToId, 'shipTo', baseRow);
+
+    const lineItems = msg.querySelectorAll('lineitemDefinition');
+    if (lineItems.length === 0) {
+      allRows_pushEmptyLine(rows, baseRow);
+    } else {
+      lineItems.forEach(li => {
+        const buyerSkuEl = li.querySelector('buyerSKU');
+        const row = Object.assign({}, baseRow, {
+          lineNumber: attr(li, 'purchase-offer-line-number'),
+          qtyOrdered: text(li, 'qtyOrdered'),
+          productDescription: text(li, 'buyerProductDescription'),
+          buyerSKU: text(buyerSkuEl),
+          skuColor: attr(buyerSkuEl, 'color'),
+          skuSize: attr(buyerSkuEl, 'size'),
+          vendorSKU: text(li, 'vendorSKU'),
+          gs1: text(li, 'GS1'),
+          unitCost: text(li, 'unitCost'),
+          unitPrice: text(li, 'unitPrice'),
+          expectedShipByDate: text(li, 'expectedShipByDate'),
+        });
+        rows.push(row);
+      });
+    }
+  });
+
+  return rows;
+}
+
+function allRows_pushEmptyLine(rows, baseRow) {
+  rows.push(Object.assign({}, baseRow, {
+    lineNumber: '', qtyOrdered: '', productDescription: '', buyerSKU: '',
+    skuColor: '', skuSize: '', vendorSKU: '', gs1: '', unitCost: '',
+    unitPrice: '', expectedShipByDate: '',
+  }));
+}
+
+function renderTable(rows) {
+  const thead = dataTable.querySelector('thead');
+  const tbody = dataTable.querySelector('tbody');
+  thead.innerHTML = '';
+  tbody.innerHTML = '';
+
+  const headRow = document.createElement('tr');
+  COLUMNS.forEach(([key, label]) => {
+    const th = document.createElement('th');
+    th.textContent = label;
+    headRow.appendChild(th);
+  });
+  thead.appendChild(headRow);
+
+  rows.forEach(row => {
+    const tr = document.createElement('tr');
+    COLUMNS.forEach(([key]) => {
+      const td = document.createElement('td');
+      td.textContent = row[key] || '';
+      tr.appendChild(td);
+    });
+    tbody.appendChild(tr);
+  });
+
+  tableWrap.style.display = rows.length ? 'block' : 'none';
+  filterInput.style.display = allRows.length ? 'block' : 'none';
+  exportTableBtn.style.display = allRows.length ? 'block' : 'none';
+  currentTableRows = rows;
+}
+
+function buildRows(el, parentPath, indexSuffix, rows) {
+  const tag = el.tagName + (indexSuffix ? `[${indexSuffix}]` : '');
+  const path = parentPath ? `${parentPath}/${tag}` : tag;
+
+  Array.from(el.attributes || []).forEach(a => {
+    rows.push({ header: a.name, value: a.value, length: a.value.length, path: `${path}/${a.name}` });
+  });
+
+  const children = Array.from(el.children);
+  if (children.length === 0) {
+    const value = Array.from(el.childNodes)
+      .filter(n => n.nodeType === 3)
+      .map(n => n.textContent.trim())
+      .join(' ')
+      .trim();
+    rows.push({ header: el.tagName, value, length: value.length, path });
+    return;
+  }
+
+  const counts = {};
+  children.forEach(c => { counts[c.tagName] = (counts[c.tagName] || 0) + 1; });
+  const seen = {};
+  children.forEach(c => {
+    let suffix = null;
+    if (counts[c.tagName] > 1) {
+      seen[c.tagName] = (seen[c.tagName] || 0) + 1;
+      suffix = seen[c.tagName];
+    }
+    buildRows(c, path, suffix, rows);
+  });
+}
+
+function renderDrilldownTable(rows) {
+  const tbody = drilldownTable.querySelector('tbody');
+  tbody.innerHTML = '';
+  rows.forEach(row => {
+    const tr = document.createElement('tr');
+    const tdHeader = document.createElement('td');
+    tdHeader.className = 'header';
+    tdHeader.textContent = row.header;
+    const tdValue = document.createElement('td');
+    tdValue.className = 'value';
+    tdValue.textContent = row.value;
+    const tdLength = document.createElement('td');
+    tdLength.className = 'length';
+    tdLength.textContent = row.length;
+    const tdPath = document.createElement('td');
+    tdPath.className = 'path';
+    tdPath.textContent = row.path;
+    tr.append(tdHeader, tdValue, tdLength, tdPath);
+    tbody.appendChild(tr);
+  });
+  drilldownTableWrap.style.display = rows.length ? 'block' : 'none';
+  drilldownFilterInput.style.display = drilldownRows.length ? 'block' : 'none';
+  exportDrilldownBtn.style.display = drilldownRows.length ? 'block' : 'none';
+  currentDrilldownRows = rows;
+}
+
+function buildAllDrilldownRows(messages) {
+  const rows = [];
+  const counts = {};
+  messages.forEach(m => { counts[m.tagName] = (counts[m.tagName] || 0) + 1; });
+  const seen = {};
+  messages.forEach(m => {
+    let suffix = null;
+    if (counts[m.tagName] > 1) {
+      seen[m.tagName] = (seen[m.tagName] || 0) + 1;
+      suffix = seen[m.tagName];
+    }
+    buildRows(m, '', suffix, rows);
+  });
+  return rows;
+}
+
+function renderAllDrilldown() {
+  drilldownRows = buildAllDrilldownRows(messageElements);
+  drilldownFilterInput.value = '';
+  renderDrilldownTable(drilldownRows);
+}
+
+drilldownFilterInput.addEventListener('input', () => {
+  const q = drilldownFilterInput.value.trim().toLowerCase();
+  if (!q) {
+    renderDrilldownTable(drilldownRows);
+    return;
+  }
+  const filtered = drilldownRows.filter(row =>
+    row.header.toLowerCase().includes(q) ||
+    row.value.toLowerCase().includes(q) ||
+    row.path.toLowerCase().includes(q)
+  );
+  renderDrilldownTable(filtered);
+});
+
+tabBtns.forEach(btn => {
+  btn.addEventListener('click', () => {
+    tabBtns.forEach(b => b.classList.remove('active'));
+    tabPanels.forEach(p => p.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById('tab-' + btn.dataset.tab).classList.add('active');
+  });
+});
+
+function setStatus(msg, type) {
+  statusEl.textContent = msg;
+  statusEl.className = type || '';
+}
+
+function handleFile(file) {
+  if (!file) return;
+  fileInfo.textContent = `File: ${file.name} (${(file.size / 1024).toFixed(1)} KB)`;
+  setStatus('Parsing...', '');
+  summaryEl.textContent = '';
+
+  const reader = new FileReader();
+  reader.onload = e => {
+    try {
+      const parser = new DOMParser();
+      const doc = parser.parseFromString(e.target.result, 'text/xml');
+      const parseError = doc.querySelector('parsererror');
+      if (parseError) {
+        setStatus('Failed to parse XML: ' + parseError.textContent.split('\n')[0], 'error');
+        renderTable([]);
+        messageElements = [];
+        renderAllDrilldown();
+        return;
+      }
+
+      allRows = extractRows(doc);
+      messageElements = Array.from(doc.querySelectorAll('PurchaseOrderMessage'));
+      if (allRows.length === 0) {
+        setStatus('No PurchaseOrderMessage entries found in this file.', 'error');
+        renderTable([]);
+        renderAllDrilldown();
+        return;
+      }
+
+      renderTable(allRows);
+      renderAllDrilldown();
+      const messageCount = messageElements.length;
+      summaryEl.textContent = `${messageCount} purchase order message(s), ${allRows.length} line item row(s) extracted.`;
+      setStatus('Parsed successfully.', 'ok');
+    } catch (err) {
+      setStatus('Error: ' + err.message, 'error');
+      renderTable([]);
+    }
+  };
+  reader.onerror = () => setStatus('Failed to read file.', 'error');
+  reader.readAsText(file);
+}
+
+filterInput.addEventListener('input', () => {
+  const q = filterInput.value.trim().toLowerCase();
+  if (!q) {
+    renderTable(allRows);
+    return;
+  }
+  const filtered = allRows.filter(row =>
+    COLUMNS.some(([key]) => String(row[key] || '').toLowerCase().includes(q))
+  );
+  renderTable(filtered);
+});
+
+function exportAoaToExcel(headers, dataRows, filename) {
+  const wb = XLSX.utils.book_new();
+  const ws = XLSX.utils.aoa_to_sheet([headers, ...dataRows]);
+  XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
+  XLSX.writeFile(wb, filename);
+}
+
+exportTableBtn.addEventListener('click', () => {
+  const headers = COLUMNS.map(([, label]) => label);
+  const dataRows = currentTableRows.map(row => COLUMNS.map(([key]) => row[key] || ''));
+  exportAoaToExcel(headers, dataRows, 'purchase-orders-table.xlsx');
+});
+
+exportDrilldownBtn.addEventListener('click', () => {
+  const headers = ['Header', 'Value', 'Length', 'Path'];
+  const dataRows = currentDrilldownRows.map(row => [row.header, row.value, row.length, row.path]);
+  exportAoaToExcel(headers, dataRows, 'purchase-orders-drilldown.xlsx');
+});
+
+browseBtn.addEventListener('click', () => fileInput.click());
+dropzone.addEventListener('click', () => fileInput.click());
+fileInput.addEventListener('change', e => handleFile(e.target.files[0]));
+
+dropzone.addEventListener('dragover', e => {
+  e.preventDefault();
+  dropzone.classList.add('dragover');
+});
+dropzone.addEventListener('dragleave', () => dropzone.classList.remove('dragover'));
+dropzone.addEventListener('drop', e => {
+  e.preventDefault();
+  dropzone.classList.remove('dragover');
+  const file = e.dataTransfer.files[0];
+  if (file) handleFile(file);
+});
+</script>
+</body>
+</html>
