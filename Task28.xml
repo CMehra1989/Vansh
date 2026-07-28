@@ -1,0 +1,1759 @@
+   <PurchaseOrders messagebatch-id="38786529">
+    <partnerID>ATG</partnerID>
+   <PurchaseOrderMessage message-id="38786529" purchase-offer-number="FQ9L9KM" message-purpose="issue">
+        <participatingParty participationCode="To:" role="vendor">44489</participatingParty>
+        <participatingParty participationCode="Cc:" role="shipper"/>
+        <offerDate>20201019</offerDate>
+        <issuerDivision>659</issuerDivision>
+        <shipTo personPlaceID="ST_38786529"/>
+        <shipMethod code="UNSP-TH5"/>
+        <returnTo locationID="RT_38786529"/>
+        <buyingContract>44489</buyingContract>
+        <packslipTemplate>LTL</packslipTemplate>
+        <packslipMessage> </packslipMessage>
+        <dropShipIndicator drop-ship-indicator="true"/>
+        <salesOrderNumber>659BBS6516223830</salesOrderNumber>
+        <salesOrderDate>20201019 12:15:54</salesOrderDate>
+        <salesDivision>BBB</salesDivision>
+        <billTo personPlaceID="BT_38786530"/>
+        <customerPayment>
+            <paymentAmount/>
+            <paymentBreakout payment-method="CC" method-specific-identifier="MC"/>
+        </customerPayment>
+        <lineitemDefinition purchase-offer-line-number="1">
+            <qtyOrdered>1</qtyOrdered>
+            <buyerProductDescription>SPO TYLR DD SEASHL TD VDC</buyerProductDescription>
+            <buyerSKU color="SEASHELL" size="DOUBLE DRESSER">61415591</buyerSKU>
+            <vendorSKU>TL-DD-8708LD-SS</vendorSKU>
+            <GS1>848028010447</GS1>
+            <unitShippingWeight weight-unit="LB">130.07</unitShippingWeight>
+            <heightDimension dimensionUnit="IN">36.99</heightDimension>
+            <widthDimension dimensionUnit="IN">22.04</widthDimension>
+            <depthDimension dimensionUnit="IN">53.14</depthDimension>
+            <unitCost>225.57</unitCost>
+            <expectedShipByDate>20201023</expectedShipByDate>
+            <unitPrice>429.99</unitPrice>
+        </lineitemDefinition>
+        <personPlaceInfo personPlaceID="BT_38786530">
+            <firstName>Mahlon</firstName>
+            <lastName>Smucker</lastName>
+            <address1>5335 Martin Rd</address1>
+            <city>Kinzers</city>
+            <state>PA</state>
+            <postalCode>17535</postalCode>
+            <country>US</country>
+            <email>6780675449null@cybersource.com</email>
+            <dayPhone>7175983987</dayPhone>
+        </personPlaceInfo>
+        <personPlaceInfo personPlaceID="ST_38786529">
+            <firstName>Mahlon</firstName>
+            <lastName>Smucker</lastName>
+            <companyName/>
+            <address1>5335 Martin Rd</address1>
+            <city>Kinzers</city>
+            <state>PA</state>
+            <postalCode>17535</postalCode>
+            <country>US</country>
+            <email>6780675449null@cybersource.com</email>
+            <dayPhone>7175983987</dayPhone>
+        </personPlaceInfo>
+        <fulfillerLocationInfo locationID="RT_38786529">
+            <address1>1001 W. Middlesex Road</address1>
+            <city>Port Reading</city>
+            <state>NJ</state>
+            <country>US</country>
+            <postalCode>07064</postalCode>
+        </fulfillerLocationInfo>
+    </PurchaseOrderMessage>
+    <PurchaseOrderMessage message-id="38786557" purchase-offer-number="FQ9L9KN" message-purpose="issue">
+        <participatingParty participationCode="To:" role="vendor">433</participatingParty>
+        <offerDate>20201019</offerDate>
+        <issuerDivision>659</issuerDivision>
+        <shipTo personPlaceID="ST_38786557"/>
+        <shipMethod code="FEDH"/>
+        <returnTo locationID="RT_38786557"/>
+        <buyingContract>433</buyingContract>
+        <packslipTemplate/>
+        <packslipMessage> </packslipMessage>
+        <dropShipIndicator drop-ship-indicator="true"/>
+        <salesOrderNumber>659BBS6516232704</salesOrderNumber>
+        <salesOrderDate>20201019 12:15:55</salesOrderDate>
+        <salesDivision>BBB</salesDivision>
+        <billTo personPlaceID="BT_38786558"/>
+        <customerPayment>
+            <paymentAmount/>
+            <paymentBreakout payment-method="CC" method-specific-identifier="VI"/>
+        </customerPayment>
+        <lineitemDefinition purchase-offer-line-number="1">
+            <qtyOrdered>1</qtyOrdered>
+            <buyerProductDescription>GRNTSTN DMN FRY PN 14 BLU VDC</buyerProductDescription>
+            <buyerSKU color="BLUE" size="14quot;">69590205</buyerSKU>
+            <vendorSKU>7074           </vendorSKU>
+            <GS1>080313070747</GS1>
+            <unitCost>20</unitCost>
+            <unitPrice>39.99</unitPrice>
+        </lineitemDefinition>
+        <personPlaceInfo personPlaceID="BT_38786558">
+            <firstName>Joann</firstName>
+            <lastName>Clark</lastName>
+            <address1>6120 Tree Fox Pl</address1>
+            <city>Indianapolis</city>
+            <state>IN</state>
+            <postalCode>46237</postalCode>
+            <country>US</country>
+            <email>joclark1951@gmail.com</email>
+            <dayPhone>3174375945</dayPhone>
+        </personPlaceInfo>
+        <personPlaceInfo personPlaceID="ST_38786557">
+            <firstName>Joann</firstName>
+            <lastName>Clark</lastName>
+            <companyName/>
+            <address1>6120 Tree Fox Pl</address1>
+            <city>Indianapolis</city>
+            <state>IN</state>
+            <postalCode>46237</postalCode>
+            <country>US</country>
+            <email>joclark1951@gmail.com</email>
+            <dayPhone>3174375945</dayPhone>
+        </personPlaceInfo>
+        <fulfillerLocationInfo locationID="RT_38786557">
+            <address1>1001 W. Middlesex Road</address1>
+            <city>Port Reading</city>
+            <state>NJ</state>
+            <country>US</country>
+            <postalCode>07064</postalCode>
+        </fulfillerLocationInfo>
+    </PurchaseOrderMessage>
+    <PurchaseOrderMessage message-id="38786586" purchase-offer-number="FQ9L9KP" message-purpose="issue">
+        <participatingParty participationCode="To:" role="vendor">70043</participatingParty>
+        <offerDate>20201019</offerDate>
+        <issuerDivision>659</issuerDivision>
+        <shipTo personPlaceID="ST_38786586"/>
+        <shipMethod code="FEDX"/>
+        <returnTo locationID="RT_38786586"/>
+        <buyingContract>70043</buyingContract>
+        <packslipTemplate/>
+        <packslipMessage> </packslipMessage>
+        <dropShipIndicator drop-ship-indicator="true"/>
+        <salesOrderNumber>659CAN6516229745</salesOrderNumber>
+        <salesOrderDate>20201019 12:16:39</salesOrderDate>
+        <salesDivision>BBB</salesDivision>
+        <billTo personPlaceID="BT_38786587"/>
+        <customerPayment>
+            <paymentAmount/>
+            <paymentBreakout payment-method="PP"/>
+        </customerPayment>
+        <lineitemDefinition purchase-offer-line-number="1">
+            <qtyOrdered>1</qtyOrdered>
+            <buyerProductDescription>MC BUG ARMR 11 MT  TXLWHTCAVDC</buyerProductDescription>
+            <buyerSKU color="WHITE" size="TWIN XL">66744962</buyerSKU>
+            <vendorSKU>MN-BUGBL-11TXL </vendorSKU>
+            <GS1>773114196593</GS1>
+            <unitCost>24.75</unitCost>
+            <unitPrice>41</unitPrice>
+        </lineitemDefinition>
+        <personPlaceInfo personPlaceID="BT_38786587">
+            <firstName>Arlene</firstName>
+            <lastName>Keir</lastName>
+            <address1>31 Lake Avenue</address1>
+            <address2>Apt 1 Rm 2</address2>
+            <city>Richmond Hill</city>
+            <state>ON</state>
+            <postalCode>L4E 3G4</postalCode>
+            <country>CA</country>
+            <email>tazess19@yahoo.ca</email>
+            <dayPhone>9058063967</dayPhone>
+        </personPlaceInfo>
+        <personPlaceInfo personPlaceID="ST_38786586">
+            <firstName>Arlene</firstName>
+            <lastName>Keir</lastName>
+            <companyName/>
+            <address1>31 Lake Avenue</address1>
+            <address2>Apt 1 Rm 2</address2>
+            <city>Richmond Hill</city>
+            <state>ON</state>
+            <postalCode>L4E 3G4</postalCode>
+            <country>CA</country>
+            <email>tazess19@yahoo.ca</email>
+            <dayPhone>9058063967</dayPhone>
+        </personPlaceInfo>
+        <fulfillerLocationInfo locationID="RT_38786586">
+            <address1>1001 W. Middlesex Road</address1>
+            <city>Port Reading</city>
+            <state>NJ</state>
+            <country>US</country>
+            <postalCode>07064</postalCode>
+        </fulfillerLocationInfo>
+    </PurchaseOrderMessage>
+    <PurchaseOrderMessage message-id="38786559" purchase-offer-number="FQ9L9KQ" message-purpose="issue">
+        <participatingParty participationCode="To:" role="vendor">4203</participatingParty>
+        <offerDate>20201019</offerDate>
+        <issuerDivision>659</issuerDivision>
+        <shipTo personPlaceID="ST_38786559"/>
+        <shipMethod code="FEDH"/>
+        <returnTo locationID="RT_38786559"/>
+        <buyingContract>67952</buyingContract>
+        <packslipTemplate/>
+        <packslipMessage> </packslipMessage>
+        <dropShipIndicator drop-ship-indicator="true"/>
+        <salesOrderNumber>659BBS6516232773</salesOrderNumber>
+        <salesOrderDate>20201019 12:19:54</salesOrderDate>
+        <salesDivision>BBB</salesDivision>
+        <billTo personPlaceID="BT_38786560"/>
+        <customerPayment>
+            <paymentAmount/>
+            <paymentBreakout payment-method="CC" method-specific-identifier="VI"/>
+        </customerPayment>
+        <lineitemDefinition purchase-offer-line-number="1">
+            <qtyOrdered>1</qtyOrdered>
+            <buyerProductDescription>SKILLET 15" CPPR HAM BEACH VDC</buyerProductDescription>
+            <buyerSKU color="COPPER" size="NO SIZE">65465721</buyerSKU>
+            <vendorSKU>38529          </vendorSKU>
+            <GS1>040094385294</GS1>
+            <unitCost>38.5</unitCost>
+            <unitPrice>59.99</unitPrice>
+        </lineitemDefinition>
+        <personPlaceInfo personPlaceID="BT_38786560">
+            <firstName>Lisa</firstName>
+            <lastName>Bisbee</lastName>
+            <address1>8 Goshen Heights Rd</address1>
+            <city>Moosup</city>
+            <state>CT</state>
+            <postalCode>06354</postalCode>
+            <country>US</country>
+            <email>r.bisbee@sbcglobal.net</email>
+            <dayPhone>8605642413</dayPhone>
+        </personPlaceInfo>
+        <personPlaceInfo personPlaceID="ST_38786559">
+            <firstName>Lisa</firstName>
+            <lastName>Bisbee</lastName>
+            <companyName/>
+            <address1>8 Goshen Heights Rd</address1>
+            <city>Moosup</city>
+            <state>CT</state>
+            <postalCode>06354</postalCode>
+            <country>US</country>
+            <email>r.bisbee@sbcglobal.net</email>
+            <dayPhone>8605642413</dayPhone>
+        </personPlaceInfo>
+        <fulfillerLocationInfo locationID="RT_38786559">
+            <address1>1001 W. Middlesex Road</address1>
+            <city>Port Reading</city>
+            <state>NJ</state>
+            <country>US</country>
+            <postalCode>07064</postalCode>
+        </fulfillerLocationInfo>
+    </PurchaseOrderMessage>
+    <PurchaseOrderMessage message-id="38786618" purchase-offer-number="FQ9L9KR" message-purpose="issue">
+        <participatingParty participationCode="To:" role="vendor">28372</participatingParty>
+        <offerDate>20201019</offerDate>
+        <issuerDivision>659</issuerDivision>
+        <shipTo personPlaceID="ST_38786618"/>
+        <shipMethod code="FEDX"/>
+        <returnTo locationID="RT_38786618"/>
+        <buyingContract>56944</buyingContract>
+        <packslipTemplate/>
+        <packslipMessage> </packslipMessage>
+        <dropShipIndicator drop-ship-indicator="true"/>
+        <salesOrderNumber>659CAN7106652820</salesOrderNumber>
+        <salesOrderDate>20201019 12:14:12</salesOrderDate>
+        <salesDivision>BBB</salesDivision>
+        <billTo personPlaceID="BT_38786619"/>
+        <customerPayment>
+            <paymentAmount/>
+            <paymentBreakout payment-method="CC" method-specific-identifier="VI"/>
+        </customerPayment>
+        <lineitemDefinition purchase-offer-line-number="1">
+            <qtyOrdered>1</qtyOrdered>
+            <buyerProductDescription>MPS CHATEAU CMFST K LIN VDC</buyerProductDescription>
+            <buyerSKU color="LINEN" size="KING">62787444</buyerSKU>
+            <vendorSKU>MPS10-208      </vendorSKU>
+            <GS1>675716869168</GS1>
+            <unitCost>192.94</unitCost>
+            <unitPrice>499.99</unitPrice>
+        </lineitemDefinition>
+        <personPlaceInfo personPlaceID="BT_38786619">
+            <firstName>Cathy</firstName>
+            <lastName>Leblanc</lastName>
+            <address1>5 Donald avenue</address1>
+            <city>Amherst</city>
+            <state>NS</state>
+            <postalCode>B4H 3T5</postalCode>
+            <country>CA</country>
+            <email>cathy@remaxamherst.ca</email>
+            <dayPhone>9026940678</dayPhone>
+        </personPlaceInfo>
+        <personPlaceInfo personPlaceID="ST_38786618">
+            <firstName>Cathy</firstName>
+            <lastName>Leblanc</lastName>
+            <companyName>VDC Canada ATG</companyName>
+            <address1>c/o FedEx Trade Networks</address1>
+            <address2>555 Riverwalk Parkway</address2>
+            <city>Buffalo</city>
+            <state>NY</state>
+            <postalCode>14280</postalCode>
+            <country>US</country>
+            <email>cathy@remaxamherst.ca</email>
+            <dayPhone>9026940678</dayPhone>
+        </personPlaceInfo>
+        <fulfillerLocationInfo locationID="RT_38786618">
+            <address1>1001 W. Middlesex Road</address1>
+            <city>Port Reading</city>
+            <state>NJ</state>
+            <country>US</country>
+            <postalCode>07064</postalCode>
+        </fulfillerLocationInfo>
+    </PurchaseOrderMessage>
+    <PurchaseOrderMessage message-id="38786590" purchase-offer-number="FQ9L9KT" message-purpose="issue">
+        <participatingParty participationCode="To:" role="vendor">56499</participatingParty>
+        <offerDate>20201019</offerDate>
+        <issuerDivision>659</issuerDivision>
+        <shipTo personPlaceID="ST_38786590"/>
+        <shipMethod code="FEDX"/>
+        <returnTo locationID="RT_38786590"/>
+        <buyingContract>56499</buyingContract>
+        <packslipTemplate/>
+        <packslipMessage> </packslipMessage>
+        <dropShipIndicator drop-ship-indicator="true"/>
+        <salesOrderNumber>659CAN6516233653</salesOrderNumber>
+        <salesOrderDate>20201019 12:10:32</salesOrderDate>
+        <salesDivision>BBB</salesDivision>
+        <billTo personPlaceID="BT_38786591"/>
+        <customerPayment>
+            <paymentAmount/>
+            <paymentBreakout payment-method="CC" method-specific-identifier="MC"/>
+        </customerPayment>
+        <lineitemDefinition purchase-offer-line-number="1">
+            <qtyOrdered>1</qtyOrdered>
+            <buyerProductDescription>SNWMN FAM 60X80 FLC BLKT PZVDC</buyerProductDescription>
+            <buyerSKU color="GREY" size="60 X 80quot;">67126934</buyerSKU>
+            <vendorSKU>21537-FL       </vendorSKU>
+            <GS1>444600714712</GS1>
+            <unitCost>14.74</unitCost>
+            <personalizationData>
+                <nameValuePair name="refnum">ff7fa8d42a3b427d998702d5b9dd034a</nameValuePair>
+            </personalizationData>
+            <unitPrice>87.99</unitPrice>
+        </lineitemDefinition>
+        <personPlaceInfo personPlaceID="BT_38786591">
+            <firstName>Karen</firstName>
+            <lastName>Youle</lastName>
+            <address1>91 Roselawn Cres</address1>
+            <city>WELLAND</city>
+            <state>ON</state>
+            <postalCode>L3C 0C5</postalCode>
+            <country>CA</country>
+            <email>kazbob@hotmail.com</email>
+            <dayPhone>2898206807</dayPhone>
+        </personPlaceInfo>
+        <personPlaceInfo personPlaceID="ST_38786590">
+            <firstName>Karen</firstName>
+            <lastName>Youle</lastName>
+            <companyName>VDC Canada ATG</companyName>
+            <address1>c/o FedEx Trade Networks</address1>
+            <address2>555 Riverwalk Parkway</address2>
+            <city>Buffalo</city>
+            <state>NY</state>
+            <postalCode>14280</postalCode>
+            <country>US</country>
+            <email>kazbob@hotmail.com</email>
+            <dayPhone>2898206807</dayPhone>
+        </personPlaceInfo>
+        <fulfillerLocationInfo locationID="RT_38786590">
+            <address1>1001 W. Middlesex Road</address1>
+            <city>Port Reading</city>
+            <state>NJ</state>
+            <country>US</country>
+            <postalCode>07064</postalCode>
+        </fulfillerLocationInfo>
+    </PurchaseOrderMessage>
+    <PurchaseOrderMessage message-id="38786003" purchase-offer-number="FQ9L9QC" message-purpose="issue">
+        <participatingParty participationCode="To:" role="vendor">699</participatingParty>
+        <offerDate>20201019</offerDate>
+        <issuerDivision>659</issuerDivision>
+        <shipTo personPlaceID="ST_38786003"/>
+        <shipMethod code="FEDH"/>
+        <returnTo locationID="RT_38786003"/>
+        <buyingContract>54309</buyingContract>
+        <packslipTemplate/>
+        <packslipMessage> </packslipMessage>
+        <dropShipIndicator drop-ship-indicator="true"/>
+        <salesOrderNumber>659BBB6516254315</salesOrderNumber>
+        <salesOrderDate>20201019 12:24:30</salesOrderDate>
+        <salesDivision>BBB</salesDivision>
+        <billTo personPlaceID="BT_38786004"/>
+        <customerPayment>
+            <paymentAmount/>
+            <paymentBreakout payment-method="PP"/>
+        </customerPayment>
+        <lineitemDefinition purchase-offer-line-number="1">
+            <qtyOrdered>1</qtyOrdered>
+            <buyerProductDescription>HENCK DEFINTN SHARP BLK 20PVDC</buyerProductDescription>
+            <buyerSKU color="BLACK STAINLESS" size="20 PIECE">69506139</buyerSKU>
+            <vendorSKU>19485-020      </vendorSKU>
+            <GS1>035886415891</GS1>
+            <unitCost>127.6</unitCost>
+            <unitPrice>219.99</unitPrice>
+        </lineitemDefinition>
+        <personPlaceInfo personPlaceID="BT_38786004">
+            <firstName>Marsha</firstName>
+            <lastName>Mergl</lastName>
+            <address1>121 Sunset Ct.</address1>
+            <address2>Apt. 8</address2>
+            <city>Hamburg</city>
+            <state>NY</state>
+            <postalCode>14075</postalCode>
+            <country>US</country>
+            <email>mwitchywoman@aol.com</email>
+            <dayPhone>7169363037</dayPhone>
+        </personPlaceInfo>
+        <personPlaceInfo personPlaceID="ST_38786003">
+            <firstName>Marsha</firstName>
+            <lastName>Mergl</lastName>
+            <companyName/>
+            <address1>121 Sunset Ct.</address1>
+            <address2>Apt. 8</address2>
+            <city>Hamburg</city>
+            <state>NY</state>
+            <postalCode>14075</postalCode>
+            <country>US</country>
+            <email>mwitchywoman@aol.com</email>
+            <dayPhone>7169363037</dayPhone>
+        </personPlaceInfo>
+        <fulfillerLocationInfo locationID="RT_38786003">
+            <address1>1001 W. Middlesex Road</address1>
+            <city>Port Reading</city>
+            <state>NJ</state>
+            <country>US</country>
+            <postalCode>07064</postalCode>
+        </fulfillerLocationInfo>
+    </PurchaseOrderMessage>
+    <PurchaseOrderMessage message-id="38785999" purchase-offer-number="FQ9L9QD" message-purpose="issue">
+        <participatingParty participationCode="To:" role="vendor">804</participatingParty>
+        <offerDate>20201019</offerDate>
+        <issuerDivision>659</issuerDivision>
+        <shipTo personPlaceID="ST_38785999"/>
+        <shipMethod code="FEDH"/>
+        <returnTo locationID="RT_38785999"/>
+        <buyingContract>804</buyingContract>
+        <packslipTemplate/>
+        <packslipMessage> </packslipMessage>
+        <dropShipIndicator drop-ship-indicator="true"/>
+        <salesOrderNumber>659BBB6516254276</salesOrderNumber>
+        <salesOrderDate>20201019 12:22:23</salesOrderDate>
+        <salesDivision>BBB</salesDivision>
+        <billTo personPlaceID="BT_38786000"/>
+        <customerPayment>
+            <paymentAmount/>
+            <paymentBreakout payment-method="CC" method-specific-identifier="MC"/>
+        </customerPayment>
+        <lineitemDefinition purchase-offer-line-number="1">
+            <qtyOrdered>1</qtyOrdered>
+            <buyerProductDescription>CIRC ELEMENTUM 10PC VDC</buyerProductDescription>
+            <buyerSKU color="OYSTER GRAY" size="10 PIECE">65054055</buyerSKU>
+            <vendorSKU>84564          </vendorSKU>
+            <GS1>051153845642</GS1>
+            <unitCost>99</unitCost>
+            <unitPrice>179.99</unitPrice>
+        </lineitemDefinition>
+        <personPlaceInfo personPlaceID="BT_38786000">
+            <firstName>Corby</firstName>
+            <lastName>Urban</lastName>
+            <address1>12070 40th Ave</address1>
+            <city>Becker</city>
+            <state>MN</state>
+            <postalCode>55308</postalCode>
+            <country>US</country>
+            <email>corbyurban@gmail.com</email>
+            <dayPhone>5078292273</dayPhone>
+        </personPlaceInfo>
+        <personPlaceInfo personPlaceID="ST_38785999">
+            <firstName>Corby</firstName>
+            <lastName>Urban</lastName>
+            <companyName/>
+            <address1>12070 40th Ave</address1>
+            <city>Becker</city>
+            <state>MN</state>
+            <postalCode>55308</postalCode>
+            <country>US</country>
+            <email>corbyurban@gmail.com</email>
+            <dayPhone>5078292273</dayPhone>
+        </personPlaceInfo>
+        <fulfillerLocationInfo locationID="RT_38785999">
+            <address1>1001 W. Middlesex Road</address1>
+            <city>Port Reading</city>
+            <state>NJ</state>
+            <country>US</country>
+            <postalCode>07064</postalCode>
+        </fulfillerLocationInfo>
+    </PurchaseOrderMessage>
+    <PurchaseOrderMessage message-id="38786005" purchase-offer-number="FQ9L9QE" message-purpose="issue">
+        <participatingParty participationCode="To:" role="vendor">845</participatingParty>
+        <offerDate>20201019</offerDate>
+        <issuerDivision>659</issuerDivision>
+        <shipTo personPlaceID="ST_38786005"/>
+        <shipMethod code="FEDX"/>
+        <returnTo locationID="RT_38786005"/>
+        <buyingContract>845</buyingContract>
+        <packslipTemplate/>
+        <packslipMessage>Items ordered may be shipped in multiple packages from separate locations. Please check your shipping confirmation for additional tracking information</packslipMessage>
+        <dropShipIndicator drop-ship-indicator="true"/>
+        <salesOrderNumber>659BBB6516254323</salesOrderNumber>
+        <salesOrderDate>20201019 12:24:30</salesOrderDate>
+        <salesDivision>BBB</salesDivision>
+        <billTo personPlaceID="BT_38786006"/>
+        <customerPayment>
+            <paymentAmount/>
+            <paymentBreakout payment-method="GC"/>
+            <paymentBreakout payment-method="PP"/>
+        </customerPayment>
+        <lineitemDefinition purchase-offer-line-number="1">
+            <qtyOrdered>1</qtyOrdered>
+            <buyerProductDescription>SPICE RACK TRAY EXP LYNK VDC</buyerProductDescription>
+            <buyerSKU color="SILVER" size="NO SIZE">69522058</buyerSKU>
+            <vendorSKU>4304142PK      </vendorSKU>
+            <GS1>013359430411</GS1>
+            <unitCost>27.5</unitCost>
+            <unitPrice>49.99</unitPrice>
+        </lineitemDefinition>
+        <personPlaceInfo personPlaceID="BT_38786006">
+            <firstName>Kathy</firstName>
+            <lastName>Flareau</lastName>
+            <address1>5847 Long Bayou Way South</address1>
+            <city>St. Petersburg</city>
+            <state>FL</state>
+            <postalCode>33708</postalCode>
+            <country>US</country>
+            <email>flareauk@gmail.com</email>
+            <dayPhone>7275101741</dayPhone>
+        </personPlaceInfo>
+        <personPlaceInfo personPlaceID="ST_38786005">
+            <firstName>Kathy</firstName>
+            <lastName>Flareau</lastName>
+            <companyName/>
+            <address1>5847 LONG BAYOU WAY S</address1>
+            <city>ST PETERSBURG</city>
+            <state>FL</state>
+            <postalCode>33708</postalCode>
+            <country>US</country>
+            <email>flareauk@gmail.com</email>
+            <dayPhone>7275101741</dayPhone>
+        </personPlaceInfo>
+        <fulfillerLocationInfo locationID="RT_38786005">
+            <address1>1001 W. Middlesex Road</address1>
+            <city>Port Reading</city>
+            <state>NJ</state>
+            <country>US</country>
+            <postalCode>07064</postalCode>
+        </fulfillerLocationInfo>
+    </PurchaseOrderMessage>
+    <PurchaseOrderMessage message-id="38786007" purchase-offer-number="FQ9L9QF" message-purpose="issue">
+        <participatingParty participationCode="To:" role="vendor">47804</participatingParty>
+        <offerDate>20201019</offerDate>
+        <issuerDivision>659</issuerDivision>
+        <shipTo personPlaceID="ST_38786007"/>
+        <shipMethod code="FEDX"/>
+        <returnTo locationID="RT_38786007"/>
+        <buyingContract>47804</buyingContract>
+        <packslipTemplate/>
+        <packslipMessage>Items ordered may be shipped in multiple packages from separate locations. Please check your shipping confirmation for additional tracking information</packslipMessage>
+        <dropShipIndicator drop-ship-indicator="true"/>
+        <salesOrderNumber>659BBB6516254323</salesOrderNumber>
+        <salesOrderDate>20201019 12:24:30</salesOrderDate>
+        <salesDivision>BBB</salesDivision>
+        <billTo personPlaceID="BT_38786008"/>
+        <customerPayment>
+            <paymentAmount/>
+            <paymentBreakout payment-method="GC"/>
+            <paymentBreakout payment-method="PP"/>
+        </customerPayment>
+        <lineitemDefinition purchase-offer-line-number="1">
+            <qtyOrdered>1</qtyOrdered>
+            <buyerProductDescription>KNIFE ORGANZR O/S NATURAL VDC</buyerProductDescription>
+            <buyerSKU color="NATURAL" size="ONE SIZE">65879931</buyerSKU>
+            <vendorSKU>KB1354         </vendorSKU>
+            <GS1>895908001354</GS1>
+            <unitCost>9</unitCost>
+            <unitPrice>20.99</unitPrice>
+        </lineitemDefinition>
+        <personPlaceInfo personPlaceID="BT_38786008">
+            <firstName>Kathy</firstName>
+            <lastName>Flareau</lastName>
+            <address1>5847 Long Bayou Way South</address1>
+            <city>St. Petersburg</city>
+            <state>FL</state>
+            <postalCode>33708</postalCode>
+            <country>US</country>
+            <email>flareauk@gmail.com</email>
+            <dayPhone>7275101741</dayPhone>
+        </personPlaceInfo>
+        <personPlaceInfo personPlaceID="ST_38786007">
+            <firstName>Kathy</firstName>
+            <lastName>Flareau</lastName>
+            <companyName/>
+            <address1>5847 LONG BAYOU WAY S</address1>
+            <city>ST PETERSBURG</city>
+            <state>FL</state>
+            <postalCode>33708</postalCode>
+            <country>US</country>
+            <email>flareauk@gmail.com</email>
+            <dayPhone>7275101741</dayPhone>
+        </personPlaceInfo>
+        <fulfillerLocationInfo locationID="RT_38786007">
+            <address1>1001 W. Middlesex Road</address1>
+            <city>Port Reading</city>
+            <state>NJ</state>
+            <country>US</country>
+            <postalCode>07064</postalCode>
+        </fulfillerLocationInfo>
+    </PurchaseOrderMessage>
+    <PurchaseOrderMessage message-id="38786001" purchase-offer-number="FQ9L9QG" message-purpose="issue">
+        <participatingParty participationCode="To:" role="vendor">67923</participatingParty>
+        <offerDate>20201019</offerDate>
+        <issuerDivision>659</issuerDivision>
+        <shipTo personPlaceID="ST_38786001"/>
+        <shipMethod code="FEDH"/>
+        <returnTo locationID="RT_38786001"/>
+        <buyingContract>67923</buyingContract>
+        <packslipTemplate/>
+        <packslipMessage>Items ordered may be shipped in multiple packages from separate locations. Please check your shipping confirmation for additional tracking information</packslipMessage>
+        <dropShipIndicator drop-ship-indicator="true"/>
+        <salesOrderNumber>659BBB6516254285</salesOrderNumber>
+        <salesOrderDate>20201019 12:24:12</salesOrderDate>
+        <salesDivision>BBB</salesDivision>
+        <billTo personPlaceID="BT_38786002"/>
+        <customerPayment>
+            <paymentAmount/>
+            <paymentBreakout payment-method="PP"/>
+        </customerPayment>
+        <lineitemDefinition purchase-offer-line-number="1">
+            <qtyOrdered>1</qtyOrdered>
+            <buyerProductDescription>UL ST.LOUIS AGRA 3'3X5'3GRNVDC</buyerProductDescription>
+            <buyerSKU color="GREEN" size="3'3 X 5'3quot;">66065463</buyerSKU>
+            <vendorSKU>3123545        </vendorSKU>
+            <GS1>889919048330</GS1>
+            <unitCost>24</unitCost>
+            <unitPrice>48.99</unitPrice>
+        </lineitemDefinition>
+        <lineitemDefinition purchase-offer-line-number="2">
+            <qtyOrdered>1</qtyOrdered>
+            <buyerProductDescription>RNBW SPEC 3'X5' PNK VDC</buyerProductDescription>
+            <buyerSKU color="PINK" size="3' X 5'">68766108</buyerSKU>
+            <vendorSKU>3142637        </vendorSKU>
+            <GS1>889919787352</GS1>
+            <unitCost>34.9</unitCost>
+            <unitPrice>99.99</unitPrice>
+        </lineitemDefinition>
+        <personPlaceInfo personPlaceID="BT_38786002">
+            <firstName>Danielle</firstName>
+            <lastName>Rasmussen</lastName>
+            <address1>46 HILLSIDE LN</address1>
+            <city>MILFORD</city>
+            <state>NJ</state>
+            <postalCode>08848</postalCode>
+            <country>US</country>
+            <email>danielle_rasmussen18@yahoo.com</email>
+            <dayPhone>9088929047</dayPhone>
+        </personPlaceInfo>
+        <personPlaceInfo personPlaceID="ST_38786001">
+            <firstName>Richard</firstName>
+            <lastName>Davis</lastName>
+            <companyName/>
+            <address1>4 Walnut Ter</address1>
+            <city>Keyport</city>
+            <state>NJ</state>
+            <postalCode>07735</postalCode>
+            <country>US</country>
+            <email>danielle_rasmussen18@yahoo.com</email>
+            <dayPhone>9088929047</dayPhone>
+        </personPlaceInfo>
+        <fulfillerLocationInfo locationID="RT_38786001">
+            <address1>1001 W. Middlesex Road</address1>
+            <city>Port Reading</city>
+            <state>NJ</state>
+            <country>US</country>
+            <postalCode>07064</postalCode>
+        </fulfillerLocationInfo>
+    </PurchaseOrderMessage>
+    <PurchaseOrderMessage message-id="38786031" purchase-offer-number="FQ9L9QH" message-purpose="issue">
+        <participatingParty participationCode="To:" role="vendor">28372</participatingParty>
+        <offerDate>20201019</offerDate>
+        <issuerDivision>659</issuerDivision>
+        <shipTo personPlaceID="ST_38786031"/>
+        <shipMethod code="FEDH"/>
+        <returnTo locationID="RT_38786031"/>
+        <buyingContract>56944</buyingContract>
+        <packslipTemplate/>
+        <packslipMessage> </packslipMessage>
+        <dropShipIndicator drop-ship-indicator="true"/>
+        <salesOrderNumber>659BBB6516255252</salesOrderNumber>
+        <salesOrderDate>20201019 12:22:24</salesOrderDate>
+        <salesDivision>BBB</salesDivision>
+        <billTo personPlaceID="BT_38786032"/>
+        <customerPayment>
+            <paymentAmount/>
+            <paymentBreakout payment-method="CC" method-specific-identifier="AX"/>
+        </customerPayment>
+        <lineitemDefinition purchase-offer-line-number="1">
+            <qtyOrdered>1</qtyOrdered>
+            <buyerProductDescription>UHK LOLA 5P CMFST F/Q PRP VDC</buyerProductDescription>
+            <buyerSKU color="PURPLE" size="FULL/QUEEN">63083835</buyerSKU>
+            <vendorSKU>UHK10-0049     </vendorSKU>
+            <GS1>675716998295</GS1>
+            <unitCost>47.63</unitCost>
+            <unitPrice>89.99</unitPrice>
+        </lineitemDefinition>
+        <personPlaceInfo personPlaceID="BT_38786032">
+            <firstName>Alicia</firstName>
+            <lastName>Rocha</lastName>
+            <address1>68 Yorkshire Cir</address1>
+            <city>Ewing</city>
+            <state>NJ</state>
+            <postalCode>08628</postalCode>
+            <country>US</country>
+            <email>aly08611@yahoo.com</email>
+            <dayPhone>6098513611</dayPhone>
+        </personPlaceInfo>
+        <personPlaceInfo personPlaceID="ST_38786031">
+            <firstName>Alicia</firstName>
+            <lastName>Rocha</lastName>
+            <companyName/>
+            <address1>68 Yorkshire Cir</address1>
+            <city>Ewing</city>
+            <state>NJ</state>
+            <postalCode>08628</postalCode>
+            <country>US</country>
+            <email>aly08611@yahoo.com</email>
+            <dayPhone>6098513611</dayPhone>
+        </personPlaceInfo>
+        <fulfillerLocationInfo locationID="RT_38786031">
+            <address1>1001 W. Middlesex Road</address1>
+            <city>Port Reading</city>
+            <state>NJ</state>
+            <country>US</country>
+            <postalCode>07064</postalCode>
+        </fulfillerLocationInfo>
+    </PurchaseOrderMessage>
+    <PurchaseOrderMessage message-id="38786013" purchase-offer-number="FQ9L9QJ" message-purpose="issue">
+        <participatingParty participationCode="To:" role="vendor">43838</participatingParty>
+        <offerDate>20201019</offerDate>
+        <issuerDivision>659</issuerDivision>
+        <shipTo personPlaceID="ST_38786013"/>
+        <shipMethod code="FEDH"/>
+        <returnTo locationID="RT_38786013"/>
+        <buyingContract>43838</buyingContract>
+        <packslipTemplate/>
+        <packslipMessage> </packslipMessage>
+        <dropShipIndicator drop-ship-indicator="true"/>
+        <salesOrderNumber>659BBB6516254366</salesOrderNumber>
+        <salesOrderDate>20201019 12:28:32</salesOrderDate>
+        <salesDivision>BBB</salesDivision>
+        <billTo personPlaceID="BT_38786014"/>
+        <customerPayment>
+            <paymentAmount/>
+            <paymentBreakout payment-method="PP"/>
+        </customerPayment>
+        <lineitemDefinition purchase-offer-line-number="1">
+            <qtyOrdered>1</qtyOrdered>
+            <buyerProductDescription>HUMID H1175WCA BLU PUREGVDC</buyerProductDescription>
+            <buyerSKU color="BLUE" size="1.5 GALLON">62141949</buyerSKU>
+            <vendorSKU>H1175WCA       </vendorSKU>
+            <GS1>817624011530</GS1>
+            <unitCost>35</unitCost>
+            <unitPrice>49.99</unitPrice>
+        </lineitemDefinition>
+        <personPlaceInfo personPlaceID="BT_38786014">
+            <firstName>Mary</firstName>
+            <lastName>Culbertson</lastName>
+            <address1>4281 Kenneth Rd</address1>
+            <city>Stow</city>
+            <state>OH</state>
+            <postalCode>44224</postalCode>
+            <country>US</country>
+            <email>mkculb@hotmail.com</email>
+            <dayPhone>3306888808</dayPhone>
+        </personPlaceInfo>
+        <personPlaceInfo personPlaceID="ST_38786013">
+            <firstName>Mary</firstName>
+            <lastName>Culbertson</lastName>
+            <companyName/>
+            <address1>4281 Kenneth Rd</address1>
+            <city>Stow</city>
+            <state>OH</state>
+            <postalCode>44224</postalCode>
+            <country>US</country>
+            <email>mkculb@hotmail.com</email>
+            <dayPhone>3306888808</dayPhone>
+        </personPlaceInfo>
+        <fulfillerLocationInfo locationID="RT_38786013">
+            <address1>1001 W. Middlesex Road</address1>
+            <city>Port Reading</city>
+            <state>NJ</state>
+            <country>US</country>
+            <postalCode>07064</postalCode>
+        </fulfillerLocationInfo>
+    </PurchaseOrderMessage>
+    <PurchaseOrderMessage message-id="38786025" purchase-offer-number="FQ9L9QK" message-purpose="issue">
+        <participatingParty participationCode="To:" role="vendor">28372</participatingParty>
+        <offerDate>20201019</offerDate>
+        <issuerDivision>659</issuerDivision>
+        <shipTo personPlaceID="ST_38786025"/>
+        <shipMethod code="FEDX"/>
+        <returnTo locationID="RT_38786025"/>
+        <buyingContract>56944</buyingContract>
+        <packslipTemplate/>
+        <packslipMessage> </packslipMessage>
+        <dropShipIndicator drop-ship-indicator="true"/>
+        <salesOrderNumber>659BBB6516255206</salesOrderNumber>
+        <salesOrderDate>20201019 12:16:38</salesOrderDate>
+        <salesDivision>BBB</salesDivision>
+        <billTo personPlaceID="BT_38786026"/>
+        <customerPayment>
+            <paymentAmount/>
+            <paymentBreakout payment-method="CC" method-specific-identifier="MC"/>
+        </customerPayment>
+        <lineitemDefinition purchase-offer-line-number="1">
+            <qtyOrdered>1</qtyOrdered>
+            <buyerProductDescription>MPS URBN CAB 8PC CMF Q BRWVDC</buyerProductDescription>
+            <buyerSKU color="BROWN" size="QUEEN COMFORTER SET">67229642</buyerSKU>
+            <vendorSKU>MPS10-345      </vendorSKU>
+            <GS1>086569964847</GS1>
+            <unitCost>165.38</unitCost>
+            <unitPrice>399.99</unitPrice>
+        </lineitemDefinition>
+        <personPlaceInfo personPlaceID="BT_38786026">
+            <firstName>Michelle</firstName>
+            <lastName>Vandenberg</lastName>
+            <address1>4200 N Foxcroft Ct</address1>
+            <city>Appleton</city>
+            <state>WI</state>
+            <postalCode>54913</postalCode>
+            <country>US</country>
+            <email>michie46@icloud.com</email>
+            <dayPhone>9208103009</dayPhone>
+        </personPlaceInfo>
+        <personPlaceInfo personPlaceID="ST_38786025">
+            <firstName>Michelle</firstName>
+            <lastName>Vandenberg</lastName>
+            <companyName/>
+            <address1>4200 N Foxcroft Ct</address1>
+            <city>Appleton</city>
+            <state>WI</state>
+            <postalCode>54913</postalCode>
+            <country>US</country>
+            <email>michie46@icloud.com</email>
+            <dayPhone>9208103009</dayPhone>
+        </personPlaceInfo>
+        <fulfillerLocationInfo locationID="RT_38786025">
+            <address1>1001 W. Middlesex Road</address1>
+            <city>Port Reading</city>
+            <state>NJ</state>
+            <country>US</country>
+            <postalCode>07064</postalCode>
+        </fulfillerLocationInfo>
+    </PurchaseOrderMessage>
+    <PurchaseOrderMessage message-id="38786051" purchase-offer-number="FQ9L9QL" message-purpose="issue">
+        <participatingParty participationCode="To:" role="vendor">28372</participatingParty>
+        <offerDate>20201019</offerDate>
+        <issuerDivision>659</issuerDivision>
+        <shipTo personPlaceID="ST_38786051"/>
+        <shipMethod code="FEDH"/>
+        <returnTo locationID="RT_38786051"/>
+        <buyingContract>56944</buyingContract>
+        <packslipTemplate/>
+        <packslipMessage> </packslipMessage>
+        <dropShipIndicator drop-ship-indicator="true"/>
+        <salesOrderNumber>659BBB6516256214</salesOrderNumber>
+        <salesOrderDate>20201019 12:18:16</salesOrderDate>
+        <salesDivision>BBB</salesDivision>
+        <billTo personPlaceID="BT_38786052"/>
+        <customerPayment>
+            <paymentAmount/>
+            <paymentBreakout payment-method="CC" method-specific-identifier="VI"/>
+        </customerPayment>
+        <lineitemDefinition purchase-offer-line-number="1">
+            <qtyOrdered>1</qtyOrdered>
+            <buyerProductDescription>WR CHECK 3P QLTST FQ RED VDC</buyerProductDescription>
+            <buyerSKU color="RED" size="FULL/QUEEN">47478145</buyerSKU>
+            <vendorSKU>WR14-1783      </vendorSKU>
+            <GS1>675716783303</GS1>
+            <unitCost>49.61</unitCost>
+            <unitPrice>89.99</unitPrice>
+        </lineitemDefinition>
+        <personPlaceInfo personPlaceID="BT_38786052">
+            <firstName>Carol</firstName>
+            <lastName>Calvano</lastName>
+            <address1>8118 Bravo Court</address1>
+            <city>Pasadena</city>
+            <state>MD</state>
+            <postalCode>21122</postalCode>
+            <country>US</country>
+            <email>carolanncalvano@gmail.com</email>
+            <dayPhone>2402985631</dayPhone>
+        </personPlaceInfo>
+        <personPlaceInfo personPlaceID="ST_38786051">
+            <firstName>Carol</firstName>
+            <lastName>Calvano</lastName>
+            <companyName/>
+            <address1>8118 Bravo Court</address1>
+            <city>Pasadena</city>
+            <state>MD</state>
+            <postalCode>21122</postalCode>
+            <country>US</country>
+            <email>carolanncalvano@gmail.com</email>
+            <dayPhone>2402985631</dayPhone>
+        </personPlaceInfo>
+        <fulfillerLocationInfo locationID="RT_38786051">
+            <address1>1001 W. Middlesex Road</address1>
+            <city>Port Reading</city>
+            <state>NJ</state>
+            <country>US</country>
+            <postalCode>07064</postalCode>
+        </fulfillerLocationInfo>
+    </PurchaseOrderMessage>
+    <PurchaseOrderMessage message-id="38786033" purchase-offer-number="FQ9L9QM" message-purpose="issue">
+        <participatingParty participationCode="To:" role="vendor">1480</participatingParty>
+        <offerDate>20201019</offerDate>
+        <issuerDivision>659</issuerDivision>
+        <shipTo personPlaceID="ST_38786033"/>
+        <shipMethod code="FEDH"/>
+        <returnTo locationID="RT_38786033"/>
+        <buyingContract>1480</buyingContract>
+        <packslipTemplate/>
+        <packslipMessage> </packslipMessage>
+        <dropShipIndicator drop-ship-indicator="true"/>
+        <salesOrderNumber>659BBB6516255266</salesOrderNumber>
+        <salesOrderDate>20201019 12:24:18</salesOrderDate>
+        <salesDivision>BBB</salesDivision>
+        <billTo personPlaceID="BT_38786034"/>
+        <customerPayment>
+            <paymentAmount/>
+            <paymentBreakout payment-method="CC" method-specific-identifier="VI"/>
+        </customerPayment>
+        <lineitemDefinition purchase-offer-line-number="1">
+            <qtyOrdered>1</qtyOrdered>
+            <buyerProductDescription>STRG BNCH KEYSTN VDC</buyerProductDescription>
+            <buyerSKU color="TEAK" size="BENCH">44676490</buyerSKU>
+            <vendorSKU>33348          </vendorSKU>
+            <GS1>021713333483</GS1>
+            <unitCost>50</unitCost>
+            <unitPrice>109.99</unitPrice>
+        </lineitemDefinition>
+        <personPlaceInfo personPlaceID="BT_38786034">
+            <firstName>Emily</firstName>
+            <lastName>Havener</lastName>
+            <address1>518 Scotch Range Rd</address1>
+            <city>Summerville</city>
+            <state>SC</state>
+            <postalCode>29483</postalCode>
+            <country>US</country>
+            <email>emilyahavener@gmail.com</email>
+            <dayPhone>8434752051</dayPhone>
+        </personPlaceInfo>
+        <personPlaceInfo personPlaceID="ST_38786033">
+            <firstName>Emily</firstName>
+            <lastName>Havener</lastName>
+            <companyName/>
+            <address1>518 Scotch Range Rd</address1>
+            <city>Summerville</city>
+            <state>SC</state>
+            <postalCode>29483</postalCode>
+            <country>US</country>
+            <email>emilyahavener@gmail.com</email>
+            <dayPhone>8434752051</dayPhone>
+        </personPlaceInfo>
+        <fulfillerLocationInfo locationID="RT_38786033">
+            <address1>1001 W. Middlesex Road</address1>
+            <city>Port Reading</city>
+            <state>NJ</state>
+            <country>US</country>
+            <postalCode>07064</postalCode>
+        </fulfillerLocationInfo>
+    </PurchaseOrderMessage>
+    <PurchaseOrderMessage message-id="38786057" purchase-offer-number="FQ9L9QN" message-purpose="issue">
+        <participatingParty participationCode="To:" role="vendor">68315</participatingParty>
+        <offerDate>20201019</offerDate>
+        <issuerDivision>659</issuerDivision>
+        <shipTo personPlaceID="ST_38786057"/>
+        <shipMethod code="FEDX"/>
+        <returnTo locationID="RT_38786057"/>
+        <buyingContract>68315</buyingContract>
+        <packslipTemplate/>
+        <packslipMessage>Items ordered may be shipped in multiple packages from separate locations. Please check your shipping confirmation for additional tracking information</packslipMessage>
+        <dropShipIndicator drop-ship-indicator="true"/>
+        <salesOrderNumber>659BBB6516256296</salesOrderNumber>
+        <salesOrderDate>20201019 12:22:31</salesOrderDate>
+        <salesDivision>BBB</salesDivision>
+        <billTo personPlaceID="BT_38786058"/>
+        <customerPayment>
+            <paymentAmount/>
+            <paymentBreakout payment-method="CC" method-specific-identifier="PL"/>
+        </customerPayment>
+        <lineitemDefinition purchase-offer-line-number="1">
+            <qtyOrdered>1</qtyOrdered>
+            <buyerProductDescription>PRIME HOVERBOARD R6 BLU BLKVDC</buyerProductDescription>
+            <buyerSKU color="BLUE/BLACK" size="NO SIZE">65557792</buyerSKU>
+            <vendorSKU>PM-R6-BLBK     </vendorSKU>
+            <GS1>850039006449</GS1>
+            <unitCost>180</unitCost>
+            <unitPrice>249.99</unitPrice>
+        </lineitemDefinition>
+        <personPlaceInfo personPlaceID="BT_38786058">
+            <firstName>Jennifer</firstName>
+            <lastName>Fowler</lastName>
+            <address1>8811 Autumn Winds Dr</address1>
+            <address2>Apt 305</address2>
+            <city>Raleigh</city>
+            <state>NC</state>
+            <postalCode>27615</postalCode>
+            <country>US</country>
+            <email>jenniferfowler73@yahoo.com</email>
+            <dayPhone>2529993033</dayPhone>
+        </personPlaceInfo>
+        <personPlaceInfo personPlaceID="ST_38786057">
+            <firstName>Jennifer</firstName>
+            <lastName>Fowler</lastName>
+            <companyName/>
+            <address1>8811 Autumn Winds Dr</address1>
+            <address2>Apt 305</address2>
+            <city>Raleigh</city>
+            <state>NC</state>
+            <postalCode>27615</postalCode>
+            <country>US</country>
+            <email>jenniferfowler73@yahoo.com</email>
+            <dayPhone>2529993033</dayPhone>
+        </personPlaceInfo>
+        <fulfillerLocationInfo locationID="RT_38786057">
+            <address1>1001 W. Middlesex Road</address1>
+            <city>Port Reading</city>
+            <state>NJ</state>
+            <country>US</country>
+            <postalCode>07064</postalCode>
+        </fulfillerLocationInfo>
+    </PurchaseOrderMessage>
+    <PurchaseOrderMessage message-id="38786053" purchase-offer-number="FQ9L9QP" message-purpose="issue">
+        <participatingParty participationCode="To:" role="vendor">1561</participatingParty>
+        <offerDate>20201019</offerDate>
+        <issuerDivision>659</issuerDivision>
+        <shipTo personPlaceID="ST_38786053"/>
+        <shipMethod code="FEDH"/>
+        <returnTo locationID="RT_38786053"/>
+        <buyingContract>71229</buyingContract>
+        <packslipTemplate/>
+        <packslipMessage> </packslipMessage>
+        <dropShipIndicator drop-ship-indicator="true"/>
+        <salesOrderNumber>659BBB6516256273</salesOrderNumber>
+        <salesOrderDate>20201019 12:20:36</salesOrderDate>
+        <salesDivision>BBB</salesDivision>
+        <billTo personPlaceID="BT_38786054"/>
+        <customerPayment>
+            <paymentAmount/>
+            <paymentBreakout payment-method="PP"/>
+        </customerPayment>
+        <lineitemDefinition purchase-offer-line-number="1">
+            <qtyOrdered>1</qtyOrdered>
+            <buyerProductDescription>CW SQ CLAY 16PC EX VDC</buyerProductDescription>
+            <buyerSKU color="CLAY" size="16 PIECE">67036073</buyerSKU>
+            <vendorSKU>5101-B16R      </vendorSKU>
+            <GS1>037725592220</GS1>
+            <unitCost>80</unitCost>
+            <giftRegistry>548679626</giftRegistry>
+            <unitPrice>159.99</unitPrice>
+        </lineitemDefinition>
+        <personPlaceInfo personPlaceID="BT_38786054">
+            <firstName>Therese</firstName>
+            <lastName>Rivers</lastName>
+            <address1>66A cleveland ave</address1>
+            <city>everett</city>
+            <state>MA</state>
+            <postalCode>02149</postalCode>
+            <country>US</country>
+            <email>trivers@partners.org</email>
+            <dayPhone>8578887579</dayPhone>
+        </personPlaceInfo>
+        <personPlaceInfo personPlaceID="ST_38786053">
+            <firstName>Therese</firstName>
+            <lastName>Rivers</lastName>
+            <companyName/>
+            <address1>66A Cleveland Ave</address1>
+            <city>Everett</city>
+            <state>MA</state>
+            <postalCode>02149</postalCode>
+            <country>US</country>
+            <email>trivers@partners.org</email>
+            <dayPhone>8578887579</dayPhone>
+        </personPlaceInfo>
+        <fulfillerLocationInfo locationID="RT_38786053">
+            <address1>1001 W. Middlesex Road</address1>
+            <city>Port Reading</city>
+            <state>NJ</state>
+            <country>US</country>
+            <postalCode>07064</postalCode>
+        </fulfillerLocationInfo>
+    </PurchaseOrderMessage>
+    <PurchaseOrderMessage message-id="38786055" purchase-offer-number="FQ9L9QQ" message-purpose="issue">
+        <participatingParty participationCode="To:" role="vendor">68013</participatingParty>
+        <offerDate>20201019</offerDate>
+        <issuerDivision>659</issuerDivision>
+        <shipTo personPlaceID="ST_38786055"/>
+        <shipMethod code="FEDX"/>
+        <returnTo locationID="RT_38786055"/>
+        <buyingContract>68013</buyingContract>
+        <packslipTemplate/>
+        <packslipMessage>Items ordered may be shipped in multiple packages from separate locations. Please check your shipping confirmation for additional tracking information</packslipMessage>
+        <dropShipIndicator drop-ship-indicator="true"/>
+        <salesOrderNumber>659BBB6516256296</salesOrderNumber>
+        <salesOrderDate>20201019 12:22:31</salesOrderDate>
+        <salesDivision>BBB</salesDivision>
+        <billTo personPlaceID="BT_38786056"/>
+        <customerPayment>
+            <paymentAmount/>
+            <paymentBreakout payment-method="CC" method-specific-identifier="PL"/>
+        </customerPayment>
+        <lineitemDefinition purchase-offer-line-number="1">
+            <qtyOrdered>1</qtyOrdered>
+            <buyerProductDescription>AIRFRY DGTL 8PRE 3.7QT BLKVDC</buyerProductDescription>
+            <buyerSKU color="BLACK" size="3.7 QT">64825731</buyerSKU>
+            <vendorSKU>GW22638        </vendorSKU>
+            <GS1>853821006634</GS1>
+            <unitCost>45</unitCost>
+            <unitPrice>79.99</unitPrice>
+        </lineitemDefinition>
+        <personPlaceInfo personPlaceID="BT_38786056">
+            <firstName>Jennifer</firstName>
+            <lastName>Fowler</lastName>
+            <address1>8811 Autumn Winds Dr</address1>
+            <address2>Apt 305</address2>
+            <city>Raleigh</city>
+            <state>NC</state>
+            <postalCode>27615</postalCode>
+            <country>US</country>
+            <email>jenniferfowler73@yahoo.com</email>
+            <dayPhone>2529993033</dayPhone>
+        </personPlaceInfo>
+        <personPlaceInfo personPlaceID="ST_38786055">
+            <firstName>Jennifer</firstName>
+            <lastName>Fowler</lastName>
+            <companyName/>
+            <address1>8811 Autumn Winds Dr</address1>
+            <address2>Apt 305</address2>
+            <city>Raleigh</city>
+            <state>NC</state>
+            <postalCode>27615</postalCode>
+            <country>US</country>
+            <email>jenniferfowler73@yahoo.com</email>
+            <dayPhone>2529993033</dayPhone>
+        </personPlaceInfo>
+        <fulfillerLocationInfo locationID="RT_38786055">
+            <address1>1001 W. Middlesex Road</address1>
+            <city>Port Reading</city>
+            <state>NJ</state>
+            <country>US</country>
+            <postalCode>07064</postalCode>
+        </fulfillerLocationInfo>
+    </PurchaseOrderMessage>
+    <PurchaseOrderMessage message-id="38786059" purchase-offer-number="FQ9L9QR" message-purpose="issue">
+        <participatingParty participationCode="To:" role="vendor">69739</participatingParty>
+        <offerDate>20201019</offerDate>
+        <issuerDivision>659</issuerDivision>
+        <shipTo personPlaceID="ST_38786059"/>
+        <shipMethod code="FEDX"/>
+        <returnTo locationID="RT_38786059"/>
+        <buyingContract>69739</buyingContract>
+        <packslipTemplate/>
+        <packslipMessage>Items ordered may be shipped in multiple packages from separate locations. Please check your shipping confirmation for additional tracking information</packslipMessage>
+        <dropShipIndicator drop-ship-indicator="true"/>
+        <salesOrderNumber>659BBB6516256296</salesOrderNumber>
+        <salesOrderDate>20201019 12:22:31</salesOrderDate>
+        <salesDivision>BBB</salesDivision>
+        <billTo personPlaceID="BT_38786060"/>
+        <customerPayment>
+            <paymentAmount/>
+            <paymentBreakout payment-method="CC" method-specific-identifier="PL"/>
+        </customerPayment>
+        <lineitemDefinition purchase-offer-line-number="1">
+            <qtyOrdered>1</qtyOrdered>
+            <buyerProductDescription>CRUZE WOMAN SKATE SZ 7 VDC</buyerProductDescription>
+            <buyerSKU color="WHITE" size="SIZE 7">68709754</buyerSKU>
+            <vendorSKU>U727W-07       </vendorSKU>
+            <GS1>049288727179</GS1>
+            <unitCost>35</unitCost>
+            <unitPrice>69.99</unitPrice>
+        </lineitemDefinition>
+        <personPlaceInfo personPlaceID="BT_38786060">
+            <firstName>Jennifer</firstName>
+            <lastName>Fowler</lastName>
+            <address1>8811 Autumn Winds Dr</address1>
+            <address2>Apt 305</address2>
+            <city>Raleigh</city>
+            <state>NC</state>
+            <postalCode>27615</postalCode>
+            <country>US</country>
+            <email>jenniferfowler73@yahoo.com</email>
+            <dayPhone>2529993033</dayPhone>
+        </personPlaceInfo>
+        <personPlaceInfo personPlaceID="ST_38786059">
+            <firstName>Jennifer</firstName>
+            <lastName>Fowler</lastName>
+            <companyName/>
+            <address1>8811 Autumn Winds Dr</address1>
+            <address2>Apt 305</address2>
+            <city>Raleigh</city>
+            <state>NC</state>
+            <postalCode>27615</postalCode>
+            <country>US</country>
+            <email>jenniferfowler73@yahoo.com</email>
+            <dayPhone>2529993033</dayPhone>
+        </personPlaceInfo>
+        <fulfillerLocationInfo locationID="RT_38786059">
+            <address1>1001 W. Middlesex Road</address1>
+            <city>Port Reading</city>
+            <state>NJ</state>
+            <country>US</country>
+            <postalCode>07064</postalCode>
+        </fulfillerLocationInfo>
+    </PurchaseOrderMessage>
+    <PurchaseOrderMessage message-id="38786085" purchase-offer-number="FQ9L9QS" message-purpose="issue">
+        <participatingParty participationCode="To:" role="vendor">51715</participatingParty>
+        <offerDate>20201019</offerDate>
+        <issuerDivision>659</issuerDivision>
+        <shipTo personPlaceID="ST_38786085"/>
+        <shipMethod code="FEDH"/>
+        <returnTo locationID="RT_38786085"/>
+        <buyingContract>51715</buyingContract>
+        <packslipTemplate/>
+        <packslipMessage> </packslipMessage>
+        <dropShipIndicator drop-ship-indicator="true"/>
+        <salesOrderNumber>659BBB6516260233</salesOrderNumber>
+        <salesOrderDate>20201019 12:18:17</salesOrderDate>
+        <salesDivision>BBB</salesDivision>
+        <billTo personPlaceID="BT_38786086"/>
+        <customerPayment>
+            <paymentAmount/>
+            <paymentBreakout payment-method="CC" method-specific-identifier="AX"/>
+        </customerPayment>
+        <lineitemDefinition purchase-offer-line-number="1">
+            <qtyOrdered>1</qtyOrdered>
+            <buyerProductDescription>PIZZA CUTTR NFL GIANTS VDC</buyerProductDescription>
+            <buyerSKU color="BLUE" size="NO SIZE">66534051</buyerSKU>
+            <vendorSKU>PZNFL21        </vendorSKU>
+            <GS1>771831232211</GS1>
+            <unitCost>9</unitCost>
+            <unitPrice>19.99</unitPrice>
+        </lineitemDefinition>
+        <personPlaceInfo personPlaceID="BT_38786086">
+            <firstName>Jennifer</firstName>
+            <lastName>Nash</lastName>
+            <address1>6415 Tennessee Avenue</address1>
+            <city>Willowbrook</city>
+            <state>IL</state>
+            <postalCode>60527</postalCode>
+            <country>US</country>
+            <email>nashjennifer2013@gmail.com</email>
+            <dayPhone>2108827049</dayPhone>
+        </personPlaceInfo>
+        <personPlaceInfo personPlaceID="ST_38786085">
+            <firstName>Jennifer</firstName>
+            <lastName>Nash</lastName>
+            <companyName/>
+            <address1>600 Campus Town Dr</address1>
+            <city>Ewing</city>
+            <state>NJ</state>
+            <postalCode>08638-1922</postalCode>
+            <country>US</country>
+            <email>nashjennifer2013@gmail.com</email>
+            <dayPhone>2108827049</dayPhone>
+        </personPlaceInfo>
+        <fulfillerLocationInfo locationID="RT_38786085">
+            <address1>1001 W. Middlesex Road</address1>
+            <city>Port Reading</city>
+            <state>NJ</state>
+            <country>US</country>
+            <postalCode>07064</postalCode>
+        </fulfillerLocationInfo>
+    </PurchaseOrderMessage>
+    <PurchaseOrderMessage message-id="38786089" purchase-offer-number="FQ9L9QT" message-purpose="issue">
+        <participatingParty participationCode="To:" role="vendor">47748</participatingParty>
+        <offerDate>20201019</offerDate>
+        <issuerDivision>659</issuerDivision>
+        <shipTo personPlaceID="ST_38786089"/>
+        <shipMethod code="FEDH"/>
+        <returnTo locationID="RT_38786089"/>
+        <buyingContract>47748</buyingContract>
+        <packslipTemplate/>
+        <packslipMessage> </packslipMessage>
+        <dropShipIndicator drop-ship-indicator="true"/>
+        <salesOrderNumber>659BBB6516260268</salesOrderNumber>
+        <salesOrderDate>20201019 12:22:14</salesOrderDate>
+        <salesDivision>BBB</salesDivision>
+        <billTo personPlaceID="BT_38786090"/>
+        <customerPayment>
+            <paymentAmount/>
+            <paymentBreakout payment-method="PP"/>
+        </customerPayment>
+        <lineitemDefinition purchase-offer-line-number="1">
+            <qtyOrdered>1</qtyOrdered>
+            <buyerProductDescription>QUILT RACK MTL BAR BTM VDC</buyerProductDescription>
+            <buyerSKU color="BRONZE" size="NO SIZE">45798979</buyerSKU>
+            <vendorSKU>1220           </vendorSKU>
+            <GS1>757216012203</GS1>
+            <unitCost>64.5</unitCost>
+            <unitPrice>102</unitPrice>
+        </lineitemDefinition>
+        <personPlaceInfo personPlaceID="BT_38786090">
+            <firstName>Carolyn</firstName>
+            <lastName>Mclarnan</lastName>
+            <address1>104 Loblolly Loop</address1>
+            <city>Hattiesburg</city>
+            <state>MS</state>
+            <postalCode>39401</postalCode>
+            <country>US</country>
+            <email>cmclarnan@bellsouth.net</email>
+            <dayPhone>6015204877</dayPhone>
+        </personPlaceInfo>
+        <personPlaceInfo personPlaceID="ST_38786089">
+            <firstName>Carolyn</firstName>
+            <lastName>Mclarnan</lastName>
+            <companyName/>
+            <address1>104 Loblolly Loop</address1>
+            <city>Hattiesburg</city>
+            <state>MS</state>
+            <postalCode>39401-7809</postalCode>
+            <country>US</country>
+            <email>cmclarnan@bellsouth.net</email>
+            <dayPhone>6015204877</dayPhone>
+        </personPlaceInfo>
+        <fulfillerLocationInfo locationID="RT_38786089">
+            <address1>1001 W. Middlesex Road</address1>
+            <city>Port Reading</city>
+            <state>NJ</state>
+            <country>US</country>
+            <postalCode>07064</postalCode>
+        </fulfillerLocationInfo>
+    </PurchaseOrderMessage>
+    <PurchaseOrderMessage message-id="38786087" purchase-offer-number="FQ9L9QU" message-purpose="issue">
+        <participatingParty participationCode="To:" role="vendor">47140</participatingParty>
+        <offerDate>20201019</offerDate>
+        <issuerDivision>659</issuerDivision>
+        <shipTo personPlaceID="ST_38786087"/>
+        <shipMethod code="FEDH"/>
+        <returnTo locationID="RT_38786087"/>
+        <buyingContract>47140</buyingContract>
+        <packslipTemplate/>
+        <packslipMessage> </packslipMessage>
+        <dropShipIndicator drop-ship-indicator="true"/>
+        <salesOrderNumber>659BBB6516260252</salesOrderNumber>
+        <salesOrderDate>20201019 12:20:37</salesOrderDate>
+        <salesDivision>BBB</salesDivision>
+        <billTo personPlaceID="BT_38786088"/>
+        <customerPayment>
+            <paymentAmount/>
+            <paymentBreakout payment-method="PP"/>
+            <paymentBreakout payment-method="GC"/>
+        </customerPayment>
+        <lineitemDefinition purchase-offer-line-number="1">
+            <qtyOrdered>1</qtyOrdered>
+            <buyerProductDescription>LD AVON 3 P WHITE CMFST K VDC</buyerProductDescription>
+            <buyerSKU color="WHITE" size="KING">62646895</buyerSKU>
+            <vendorSKU>C18088P14-000  </vendorSKU>
+            <GS1>848742018088</GS1>
+            <unitCost>85</unitCost>
+            <giftRegistry>549175547</giftRegistry>
+            <unitPrice>159.99</unitPrice>
+        </lineitemDefinition>
+        <personPlaceInfo personPlaceID="BT_38786088">
+            <firstName>Jerri</firstName>
+            <lastName>Bullard</lastName>
+            <address1>939 Ridgecliff Drive</address1>
+            <city>Florence</city>
+            <state>AL</state>
+            <postalCode>35634</postalCode>
+            <country>US</country>
+            <email>jerribullard@comcast.net</email>
+            <dayPhone>2567104603</dayPhone>
+        </personPlaceInfo>
+        <personPlaceInfo personPlaceID="ST_38786087">
+            <firstName>Leslie</firstName>
+            <lastName>Bullard</lastName>
+            <companyName/>
+            <address1>2249 ACTON PARK CIR</address1>
+            <city>BIRMINGHAM</city>
+            <state>AL</state>
+            <postalCode>35243</postalCode>
+            <country>US</country>
+            <email>LBULLARD93@GMAIL.COM</email>
+            <dayPhone>2567104997</dayPhone>
+        </personPlaceInfo>
+        <fulfillerLocationInfo locationID="RT_38786087">
+            <address1>1001 W. Middlesex Road</address1>
+            <city>Port Reading</city>
+            <state>NJ</state>
+            <country>US</country>
+            <postalCode>07064</postalCode>
+        </fulfillerLocationInfo>
+    </PurchaseOrderMessage>
+    <PurchaseOrderMessage message-id="38786111" purchase-offer-number="FQ9L9QV" message-purpose="issue">
+        <participatingParty participationCode="To:" role="vendor">71123</participatingParty>
+        <offerDate>20201019</offerDate>
+        <issuerDivision>659</issuerDivision>
+        <shipTo personPlaceID="ST_38786111"/>
+        <shipMethod code="FEDH"/>
+        <returnTo locationID="RT_38786111"/>
+        <buyingContract>71123</buyingContract>
+        <packslipTemplate/>
+        <packslipMessage> </packslipMessage>
+        <dropShipIndicator drop-ship-indicator="true"/>
+        <salesOrderNumber>659BBB6516261279</salesOrderNumber>
+        <salesOrderDate>20201019 12:22:24</salesOrderDate>
+        <salesDivision>BBB</salesDivision>
+        <billTo personPlaceID="BT_38786112"/>
+        <customerPayment>
+            <paymentAmount/>
+            <paymentBreakout payment-method="CC" method-specific-identifier="MC"/>
+        </customerPayment>
+        <lineitemDefinition purchase-offer-line-number="1">
+            <qtyOrdered>1</qtyOrdered>
+            <buyerProductDescription>TOWNEW 4GSEALING TRASH WHT VDC</buyerProductDescription>
+            <buyerSKU color="WHITE" size="15 LITER">69581139</buyerSKU>
+            <vendorSKU>KTN901X0H      </vendorSKU>
+            <GS1>628110906816</GS1>
+            <unitCost>65</unitCost>
+            <unitPrice>119.99</unitPrice>
+        </lineitemDefinition>
+        <personPlaceInfo personPlaceID="BT_38786112">
+            <firstName>Joshua</firstName>
+            <lastName>Voss</lastName>
+            <address1>25 Waubesa St</address1>
+            <city>Madison</city>
+            <state>WI</state>
+            <postalCode>53704</postalCode>
+            <country>US</country>
+            <email>joshvoss88@gmail.com</email>
+            <dayPhone>6085755127</dayPhone>
+        </personPlaceInfo>
+        <personPlaceInfo personPlaceID="ST_38786111">
+            <firstName>Joshua</firstName>
+            <lastName>Voss</lastName>
+            <companyName/>
+            <address1>25 Waubesa St</address1>
+            <city>Madison</city>
+            <state>WI</state>
+            <postalCode>53704</postalCode>
+            <country>US</country>
+            <email>joshvoss88@gmail.com</email>
+            <dayPhone>6085755127</dayPhone>
+        </personPlaceInfo>
+        <fulfillerLocationInfo locationID="RT_38786111">
+            <address1>1001 W. Middlesex Road</address1>
+            <city>Port Reading</city>
+            <state>NJ</state>
+            <country>US</country>
+            <postalCode>07064</postalCode>
+        </fulfillerLocationInfo>
+    </PurchaseOrderMessage>
+    <PurchaseOrderMessage message-id="38786091" purchase-offer-number="FQ9L9QW" message-purpose="issue">
+        <participatingParty participationCode="To:" role="vendor">47988</participatingParty>
+        <offerDate>20201019</offerDate>
+        <issuerDivision>659</issuerDivision>
+        <shipTo personPlaceID="ST_38786091"/>
+        <shipMethod code="FEDH"/>
+        <returnTo locationID="RT_38786091"/>
+        <buyingContract>49299</buyingContract>
+        <packslipTemplate/>
+        <packslipMessage>Items ordered may be shipped in multiple packages from separate locations. Please check your shipping confirmation for additional tracking information</packslipMessage>
+        <dropShipIndicator drop-ship-indicator="true"/>
+        <salesOrderNumber>659BBB6516260277</salesOrderNumber>
+        <salesOrderDate>20201019 12:22:25</salesOrderDate>
+        <salesDivision>BBB</salesDivision>
+        <billTo personPlaceID="BT_38786092"/>
+        <customerPayment>
+            <paymentAmount/>
+            <paymentBreakout payment-method="PP"/>
+        </customerPayment>
+        <lineitemDefinition purchase-offer-line-number="1">
+            <qtyOrdered>2</qtyOrdered>
+            <buyerProductDescription>CELL SAND BO 31.5X64 VDC</buyerProductDescription>
+            <buyerSKU color="SAND" size="31.5 X 64quot;">46196460</buyerSKU>
+            <vendorSKU>CSBO315640SD   </vendorSKU>
+            <GS1>793478695822</GS1>
+            <unitCost>44.03</unitCost>
+            <unitPrice>72.99</unitPrice>
+        </lineitemDefinition>
+        <lineitemDefinition purchase-offer-line-number="2">
+            <qtyOrdered>1</qtyOrdered>
+            <buyerProductDescription>CELL SAND BO 31.5X48 VDC</buyerProductDescription>
+            <buyerSKU color="SAND" size="31.5 X 48quot;">46199027</buyerSKU>
+            <vendorSKU>CSBO315480SD   </vendorSKU>
+            <GS1>793478694610</GS1>
+            <unitCost>33.02</unitCost>
+            <unitPrice>59.99</unitPrice>
+        </lineitemDefinition>
+        <personPlaceInfo personPlaceID="BT_38786092">
+            <firstName>Paige</firstName>
+            <lastName>Smith</lastName>
+            <address1>54 Rope Ferry Rd Unit D78</address1>
+            <city>Waterford</city>
+            <state>CT</state>
+            <postalCode>06385</postalCode>
+            <country>US</country>
+            <email>crystalvision68@gmail.com</email>
+            <dayPhone>8607102201</dayPhone>
+        </personPlaceInfo>
+        <personPlaceInfo personPlaceID="ST_38786091">
+            <firstName>Paige</firstName>
+            <lastName>Smith</lastName>
+            <companyName/>
+            <address1>54 Rope Ferry Rd Unit D78</address1>
+            <city>Waterford</city>
+            <state>CT</state>
+            <postalCode>06385</postalCode>
+            <country>US</country>
+            <email>crystalvision68@gmail.com</email>
+            <dayPhone>8607102201</dayPhone>
+        </personPlaceInfo>
+        <fulfillerLocationInfo locationID="RT_38786091">
+            <address1>1001 W. Middlesex Road</address1>
+            <city>Port Reading</city>
+            <state>NJ</state>
+            <country>US</country>
+            <postalCode>07064</postalCode>
+        </fulfillerLocationInfo>
+    </PurchaseOrderMessage>
+    <PurchaseOrderMessage message-id="38786113" purchase-offer-number="FQ9L9QX" message-purpose="issue">
+        <participatingParty participationCode="To:" role="vendor">49908</participatingParty>
+        <offerDate>20201019</offerDate>
+        <issuerDivision>659</issuerDivision>
+        <shipTo personPlaceID="ST_38786113"/>
+        <shipMethod code="FEDH"/>
+        <returnTo locationID="RT_38786113"/>
+        <buyingContract>49908</buyingContract>
+        <packslipTemplate/>
+        <packslipMessage> </packslipMessage>
+        <dropShipIndicator drop-ship-indicator="true"/>
+        <salesOrderNumber>659BBB6516261282</salesOrderNumber>
+        <salesOrderDate>20201019 12:22:27</salesOrderDate>
+        <salesDivision>BBB</salesDivision>
+        <billTo personPlaceID="BT_38786114"/>
+        <customerPayment>
+            <paymentAmount/>
+            <paymentBreakout payment-method="CC" method-specific-identifier="DS"/>
+        </customerPayment>
+        <lineitemDefinition purchase-offer-line-number="1">
+            <qtyOrdered>1</qtyOrdered>
+            <buyerProductDescription>LAND 2PC RUG SET GRY/WH VDC</buyerProductDescription>
+            <buyerSKU color="GRAY/WHITE" size="2 PIECE">67673582</buyerSKU>
+            <vendorSKU>116827054      </vendorSKU>
+            <GS1>811003026825</GS1>
+            <unitCost>13.25</unitCost>
+            <unitPrice>33.99</unitPrice>
+        </lineitemDefinition>
+        <personPlaceInfo personPlaceID="BT_38786114">
+            <firstName>Ayesha</firstName>
+            <lastName>Humera</lastName>
+            <address1>13 Lussier Dr</address1>
+            <city>Clifton Park</city>
+            <state>NY</state>
+            <postalCode>12065</postalCode>
+            <country>US</country>
+            <email>ayeshanaseeb@yahoo.com</email>
+            <dayPhone>5187792651</dayPhone>
+        </personPlaceInfo>
+        <personPlaceInfo personPlaceID="ST_38786113">
+            <firstName>Ayesha</firstName>
+            <lastName>Humera</lastName>
+            <companyName/>
+            <address1>13 Lussier Dr</address1>
+            <city>Clifton Park</city>
+            <state>NY</state>
+            <postalCode>12065</postalCode>
+            <country>US</country>
+            <email>ayeshanaseeb@yahoo.com</email>
+            <dayPhone>5187792651</dayPhone>
+        </personPlaceInfo>
+        <fulfillerLocationInfo locationID="RT_38786113">
+            <address1>1001 W. Middlesex Road</address1>
+            <city>Port Reading</city>
+            <state>NJ</state>
+            <country>US</country>
+            <postalCode>07064</postalCode>
+        </fulfillerLocationInfo>
+    </PurchaseOrderMessage>
+    <PurchaseOrderMessage message-id="38786161" purchase-offer-number="FQ9L9QY" message-purpose="issue">
+        <participatingParty participationCode="To:" role="vendor">19057</participatingParty>
+        <offerDate>20201019</offerDate>
+        <issuerDivision>659</issuerDivision>
+        <shipTo personPlaceID="ST_38786161"/>
+        <shipMethod code="FEDH"/>
+        <returnTo locationID="RT_38786161"/>
+        <buyingContract>19057</buyingContract>
+        <packslipTemplate/>
+        <packslipMessage> </packslipMessage>
+        <dropShipIndicator drop-ship-indicator="true"/>
+        <salesOrderNumber>659BBB6516262407</salesOrderNumber>
+        <salesOrderDate>20201019 12:28:33</salesOrderDate>
+        <salesDivision>BBB</salesDivision>
+        <billTo personPlaceID="BT_38786162"/>
+        <customerPayment>
+            <paymentAmount/>
+            <paymentBreakout payment-method="PP"/>
+            <paymentBreakout payment-method="GC"/>
+        </customerPayment>
+        <lineitemDefinition purchase-offer-line-number="1">
+            <qtyOrdered>1</qtyOrdered>
+            <buyerProductDescription>AKS ECI DUTCH 6QT WHT VDC</buyerProductDescription>
+            <buyerSKU color="MATTE WHITE" size="6 QT">69223587</buyerSKU>
+            <vendorSKU>TTU-U9215      </vendorSKU>
+            <GS1>048552589055</GS1>
+            <unitCost>25.5</unitCost>
+            <unitPrice>69.99</unitPrice>
+        </lineitemDefinition>
+        <personPlaceInfo personPlaceID="BT_38786162">
+            <firstName>Kristine</firstName>
+            <lastName>Nash-wong</lastName>
+            <address1>2732 GLENBRIDGE CT</address1>
+            <city>ANN ARBOR</city>
+            <state>MI</state>
+            <postalCode>48104</postalCode>
+            <country>US</country>
+            <email>kristine.nash.wong@gmail.com</email>
+            <dayPhone>7349044137</dayPhone>
+        </personPlaceInfo>
+        <personPlaceInfo personPlaceID="ST_38786161">
+            <firstName>Kristine a</firstName>
+            <lastName>Nash-wong</lastName>
+            <companyName/>
+            <address1>2732 Glenbridge Ct</address1>
+            <city>Ann Arbor</city>
+            <state>MI</state>
+            <postalCode>48104</postalCode>
+            <country>US</country>
+            <email>kristine.nash.wong@gmail.com</email>
+            <dayPhone>7349044137</dayPhone>
+        </personPlaceInfo>
+        <fulfillerLocationInfo locationID="RT_38786161">
+            <address1>1001 W. Middlesex Road</address1>
+            <city>Port Reading</city>
+            <state>NJ</state>
+            <country>US</country>
+            <postalCode>07064</postalCode>
+        </fulfillerLocationInfo>
+    </PurchaseOrderMessage>
+    <PurchaseOrderMessage message-id="38786149" purchase-offer-number="FQ9L9QZ" message-purpose="issue">
+        <participatingParty participationCode="To:" role="vendor">1645</participatingParty>
+        <offerDate>20201019</offerDate>
+        <issuerDivision>659</issuerDivision>
+        <shipTo personPlaceID="ST_38786149"/>
+        <shipMethod code="FEDH"/>
+        <returnTo locationID="RT_38786149"/>
+        <buyingContract>5303</buyingContract>
+        <packslipTemplate/>
+        <packslipMessage> </packslipMessage>
+        <dropShipIndicator drop-ship-indicator="true"/>
+        <salesOrderNumber>659BBB6516262263</salesOrderNumber>
+        <salesOrderDate>20201019 12:18:16</salesOrderDate>
+        <salesDivision>BBB</salesDivision>
+        <billTo personPlaceID="BT_38786150"/>
+        <customerPayment>
+            <paymentAmount/>
+            <paymentBreakout payment-method="PP"/>
+        </customerPayment>
+        <lineitemDefinition purchase-offer-line-number="1">
+            <qtyOrdered>1</qtyOrdered>
+            <buyerProductDescription>BENCH ARIA NAT VDC</buyerProductDescription>
+            <buyerSKU color="NATURAL" size="BENCH">62704724</buyerSKU>
+            <vendorSKU>BH137ACA01U    </vendorSKU>
+            <GS1>753793031309</GS1>
+            <unitCost>112</unitCost>
+            <unitPrice>251.99</unitPrice>
+        </lineitemDefinition>
+        <personPlaceInfo personPlaceID="BT_38786150">
+            <firstName>Pardeep</firstName>
+            <lastName>Singh</lastName>
+            <address1>2928 Castellan Lane</address1>
+            <city>Round Rock</city>
+            <state>TX</state>
+            <postalCode>78665</postalCode>
+            <country>US</country>
+            <email>psg1214@gmail.com</email>
+            <dayPhone>2039192078</dayPhone>
+        </personPlaceInfo>
+        <personPlaceInfo personPlaceID="ST_38786149">
+            <firstName>Deep</firstName>
+            <lastName>Gill</lastName>
+            <companyName/>
+            <address1>3 Sherwood Farms Rd</address1>
+            <city>Westport</city>
+            <state>CT</state>
+            <postalCode>06880</postalCode>
+            <country>US</country>
+            <email>psg1214@gmail.com</email>
+            <dayPhone>2039192078</dayPhone>
+        </personPlaceInfo>
+        <fulfillerLocationInfo locationID="RT_38786149">
+            <address1>1001 W. Middlesex Road</address1>
+            <city>Port Reading</city>
+            <state>NJ</state>
+            <country>US</country>
+            <postalCode>07064</postalCode>
+        </fulfillerLocationInfo>
+    </PurchaseOrderMessage>
+    <PurchaseOrderMessage message-id="38786179" purchase-offer-number="FQ9L9RA" message-purpose="issue">
+        <participatingParty participationCode="To:" role="vendor">19057</participatingParty>
+        <offerDate>20201019</offerDate>
+        <issuerDivision>659</issuerDivision>
+        <shipTo personPlaceID="ST_38786179"/>
+        <shipMethod code="FEDH"/>
+        <returnTo locationID="RT_38786179"/>
+        <buyingContract>19057</buyingContract>
+        <packslipTemplate/>
+        <packslipMessage> </packslipMessage>
+        <dropShipIndicator drop-ship-indicator="true"/>
+        <salesOrderNumber>659BBB6516264206</salesOrderNumber>
+        <salesOrderDate>20201019 12:16:30</salesOrderDate>
+        <salesDivision>BBB</salesDivision>
+        <billTo personPlaceID="BT_38786180"/>
+        <customerPayment>
+            <paymentAmount/>
+            <paymentBreakout payment-method="CC" method-specific-identifier="VI"/>
+        </customerPayment>
+        <lineitemDefinition purchase-offer-line-number="1">
+            <qtyOrdered>1</qtyOrdered>
+            <buyerProductDescription>AKS ECI DUTCH 6QT SEAFOAM VDC</buyerProductDescription>
+            <buyerSKU color="SEAFOAM" size="6 QT">69223563</buyerSKU>
+            <vendorSKU>TTU-U9217      </vendorSKU>
+            <GS1>048552589079</GS1>
+            <unitCost>25.5</unitCost>
+            <unitPrice>69.99</unitPrice>
+        </lineitemDefinition>
+        <personPlaceInfo personPlaceID="BT_38786180">
+            <firstName>Cherilyn</firstName>
+            <lastName>Drayton</lastName>
+            <address1>3218 Stewart St</address1>
+            <city>McKeesport</city>
+            <state>PA</state>
+            <postalCode>15132</postalCode>
+            <country>US</country>
+            <email>cherilyn38@icloud.com</email>
+            <dayPhone>4126702591</dayPhone>
+        </personPlaceInfo>
+        <personPlaceInfo personPlaceID="ST_38786179">
+            <firstName>Cherilyn</firstName>
+            <lastName>Drayton</lastName>
+            <companyName/>
+            <address1>3218 Stewart St</address1>
+            <city>McKeesport</city>
+            <state>PA</state>
+            <postalCode>15132</postalCode>
+            <country>US</country>
+            <email>cherilyn38@icloud.com</email>
+            <dayPhone>4126702591</dayPhone>
+        </personPlaceInfo>
+        <fulfillerLocationInfo locationID="RT_38786179">
+            <address1>1001 W. Middlesex Road</address1>
+            <city>Port Reading</city>
+            <state>NJ</state>
+            <country>US</country>
+            <postalCode>07064</postalCode>
+        </fulfillerLocationInfo>
+    </PurchaseOrderMessage>
+	</PurchaseOrders>
