@@ -108,56 +108,95 @@
   }
   button.browse:hover { background: #2563eb; }
   .column-select {
+    margin-top: 24px;
+    background: linear-gradient(180deg, #f8fafc 0%, #f1f5f9 100%);
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 20px 22px 22px;
+  }
+  .panel-title {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 15px;
+    font-weight: 700;
+    color: #1e293b;
+    margin-bottom: 16px;
+  }
+  .panel-title .dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #3b82f6;
+    display: inline-block;
+  }
+  .field-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+  .field {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    min-width: 170px;
+  }
+  .field label {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: #64748b;
+  }
+  .field select,
+  .field input {
+    padding: 9px 11px;
+    font-size: 14px;
+    border: 1px solid #cbd5e1;
+    border-radius: 7px;
+    background: #fff;
+    transition: border-color 0.15s, box-shadow 0.15s;
+  }
+  .field select:focus,
+  .field input:focus {
+    outline: none;
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 3px rgba(59,130,246,0.15);
+  }
+  .field-actions {
+    display: flex;
+    gap: 10px;
     margin-top: 20px;
-  }
-  .column-select label {
-    font-size: 14px;
-    font-weight: 600;
-    margin-right: 8px;
-  }
-  .column-select select {
-    padding: 6px 10px;
-    font-size: 14px;
-    border: 1px solid #d1d5db;
-    border-radius: 6px;
-    min-width: 200px;
+    flex-wrap: wrap;
   }
   button.split, button.download {
-    margin-left: 10px;
-    padding: 8px 16px;
+    padding: 10px 20px;
     border: none;
-    border-radius: 6px;
+    border-radius: 7px;
     cursor: pointer;
     font-size: 14px;
+    font-weight: 600;
     color: #fff;
-  }
-  button.split { background: #15803d; }
-  button.split:hover { background: #116932; }
-  button.download { background: #7c3aed; }
-  button.download:hover { background: #6528d4; }
-  .sheets-per-file {
     display: inline-flex;
     align-items: center;
-    margin-left: 10px;
+    gap: 6px;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.08);
+    transition: background 0.15s, transform 0.1s, box-shadow 0.15s;
   }
-  .sheets-per-file label {
-    font-size: 13px;
-    color: #444;
-    margin-right: 6px;
-  }
-  .sheets-per-file input {
-    width: 60px;
-    padding: 6px 8px;
-    font-size: 14px;
-    border: 1px solid #d1d5db;
-    border-radius: 6px;
-  }
+  button.split { background: #15803d; }
+  button.split:hover { background: #116932; box-shadow: 0 3px 8px rgba(21,128,61,0.3); transform: translateY(-1px); }
+  button.download { background: #7c3aed; }
+  button.download:hover { background: #6528d4; box-shadow: 0 3px 8px rgba(124,58,237,0.3); transform: translateY(-1px); }
   .save-folder {
     margin-top: 14px;
     display: flex;
     align-items: center;
     gap: 10px;
     flex-wrap: wrap;
+    background: #ecfdf5;
+    border: 1px solid #a7f3d0;
+    border-radius: 8px;
+    padding: 10px 14px;
   }
   button.folder {
     padding: 8px 16px;
@@ -167,6 +206,8 @@
     border-radius: 6px;
     cursor: pointer;
     font-size: 14px;
+    font-weight: 600;
+    transition: background 0.15s;
   }
   button.folder:hover { background: #0c5e57; }
   button.folder:disabled {
@@ -175,7 +216,8 @@
   }
   #folderLabel {
     font-size: 13px;
-    color: #444;
+    color: #065f46;
+    font-weight: 500;
   }
   .split-tabs {
     margin-top: 20px;
@@ -218,26 +260,33 @@
     <div id="sheetTabs" class="sheet-tabs"></div>
 
     <div class="column-select" id="columnSelectWrap" style="display:none;">
-      <label for="columnSelect">Column:</label>
-      <select id="columnSelect"></select>
-      <button type="button" class="split" id="splitBtn">Split by Column</button>
-      <span class="sheets-per-file">
-        <label for="sheetsPerFile">Sheets per file:</label>
-        <input type="number" id="sheetsPerFile" min="1" value="15">
-      </span>
-      <span class="sheets-per-file" id="fileNameWrap" style="display:none;">
-        <label for="fileNameInput">File name:</label>
-        <input type="text" id="fileNameInput" style="width:180px;">
-      </span>
-      <span class="sheets-per-file" id="sheetPrefixWrap" style="display:none;">
-        <label for="sheetPrefixInput">Sheet name suffix:</label>
-        <input type="text" id="sheetPrefixInput" style="width:120px;">
-      </span>
-      <button type="button" class="download" id="downloadBtn" style="display:none;">Download Split File(s)</button>
+      <div class="panel-title"><span class="dot"></span>Split Configuration</div>
+      <div class="field-grid">
+        <div class="field">
+          <label for="columnSelect">Column</label>
+          <select id="columnSelect"></select>
+        </div>
+        <div class="field">
+          <label for="sheetsPerFile">Sheets per file</label>
+          <input type="number" id="sheetsPerFile" min="1" value="15">
+        </div>
+        <div class="field" id="fileNameWrap" style="display:none;">
+          <label for="fileNameInput">File name</label>
+          <input type="text" id="fileNameInput">
+        </div>
+        <div class="field" id="sheetPrefixWrap" style="display:none;">
+          <label for="sheetPrefixInput">Sheet name suffix</label>
+          <input type="text" id="sheetPrefixInput">
+        </div>
+      </div>
+      <div class="field-actions">
+        <button type="button" class="split" id="splitBtn">🔀 Split by Column</button>
+        <button type="button" class="download" id="downloadBtn" style="display:none;">⬇ Download Split File(s)</button>
+      </div>
     </div>
 
     <div class="save-folder" id="saveFolderWrap" style="display:none;">
-      <button type="button" class="folder" id="chooseFolderBtn">Set Default Save Folder (one-time)</button>
+      <button type="button" class="folder" id="chooseFolderBtn">📁 Set Default Save Folder (one-time)</button>
       <span id="folderLabel">No folder selected — files will go to your browser's default Downloads folder.</span>
     </div>
 
@@ -514,11 +563,15 @@
     });
 
     splitHeader = header;
-    splitGroupsArr = Array.from(groups.entries());
+    splitGroupsArr = Array.from(groups.entries()).sort((a, b) => {
+      if (a[0] === '(Blank)') return 1;
+      if (b[0] === '(Blank)') return -1;
+      return String(a[0]).localeCompare(String(b[0]), undefined, { numeric: true, sensitivity: 'base' });
+    });
     splitTabs.innerHTML = '';
 
     let firstKey = null;
-    groups.forEach((rowIndices, key) => {
+    splitGroupsArr.forEach(([key, rowIndices]) => {
       if (firstKey === null) firstKey = key;
 
       const tab = document.createElement('div');
@@ -534,23 +587,28 @@
     });
 
     splitTabsWrap.style.display = 'block';
-    downloadBtn.style.display = 'inline-block';
-    fileNameWrap.style.display = 'inline-flex';
+    downloadBtn.style.display = 'inline-flex';
+    fileNameWrap.style.display = 'flex';
     fileNameInput.value = `${currentFileBaseName}_split`;
-    sheetPrefixWrap.style.display = 'inline-flex';
+    sheetPrefixWrap.style.display = 'flex';
     sheetPrefixInput.value = '';
 
     if (firstKey !== null) renderTable([displayHeader, ...groups.get(firstKey).map(i => currentDisplayRows[i])]);
     setStatus(`Split into ${groups.size} tab(s) by "${header[colIdx]}".`, 'ok');
   }
 
-  function copySheetSubset(sourceSheet, rowIndices, numCols) {
+  function copySheetSubset(sourceSheet, rowIndices, numCols, dateColIdxs, daysToAdd) {
     const newSheet = {};
     rowIndices.forEach((srcRow, newRow) => {
       for (let c = 0; c < numCols; c++) {
         const cell = sourceSheet[XLSX.utils.encode_cell({ r: srcRow, c })];
         if (cell) {
-          newSheet[XLSX.utils.encode_cell({ r: newRow, c })] = Object.assign({}, cell);
+          const newCell = Object.assign({}, cell);
+          if (newRow > 0 && daysToAdd && dateColIdxs.includes(c) && newCell.t === 'n') {
+            newCell.v += daysToAdd;
+            delete newCell.w;
+          }
+          newSheet[XLSX.utils.encode_cell({ r: newRow, c })] = newCell;
         }
       }
     });
@@ -581,6 +639,11 @@
 
     const baseName = sanitizeFileName(fileNameInput.value || `${currentFileBaseName}_split`);
     const sheetPrefix = sheetPrefixInput.value.trim();
+    const dateColNames = ['UPDATED_DTTM', 'SHIP_BY_DATE'];
+    const dateColIdxs = splitHeader.reduce((acc, h, idx) => {
+      if (dateColNames.includes(String(h).trim().toUpperCase())) acc.push(idx);
+      return acc;
+    }, []);
 
     for (let fileIdx = 0; fileIdx < chunks.length; fileIdx++) {
       const chunk = chunks[fileIdx];
@@ -589,7 +652,7 @@
       chunk.forEach(([key, rowIndices]) => {
         const rawSheetName = sheetPrefix ? `${key}_${sheetPrefix}` : key;
         const sheetName = uniqueSheetName(rawSheetName, usedNames);
-        const ws = copySheetSubset(currentSheet, [0, ...rowIndices], splitHeader.length);
+        const ws = copySheetSubset(currentSheet, [0, ...rowIndices], splitHeader.length, dateColIdxs, fileIdx);
         XLSX.utils.book_append_sheet(wb, ws, sheetName);
       });
 
